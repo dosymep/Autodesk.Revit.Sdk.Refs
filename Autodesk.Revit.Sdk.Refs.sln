@@ -1,0 +1,82 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C4E50B2C-639F-45F6-B3CC-2DB03AA9A1E1}"
+	ProjectSection(SolutionItems) = preProject
+		src\Directory.Build.props = src\Directory.Build.props
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autodesk.Revit.Sdk.Refs.2016", "src\Autodesk.Revit.Sdk.Refs.2016\Autodesk.Revit.Sdk.Refs.2016.csproj", "{4D6F8010-D208-4A46-A889-E4B969671389}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autodesk.Revit.Sdk.Refs.2017", "src\Autodesk.Revit.Sdk.Refs.2017\Autodesk.Revit.Sdk.Refs.2017.csproj", "{61FCD7F7-E85F-4F4B-8C3A-D58C64F24BA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autodesk.Revit.Sdk.Refs.2018", "src\Autodesk.Revit.Sdk.Refs.2018\Autodesk.Revit.Sdk.Refs.2018.csproj", "{994C256A-992D-4C42-B04E-ED1B3A823499}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autodesk.Revit.Sdk.Refs.2019", "src\Autodesk.Revit.Sdk.Refs.2019\Autodesk.Revit.Sdk.Refs.2019.csproj", "{F6312B79-A5AF-45B3-947D-0BEC1A633ADF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autodesk.Revit.Sdk.Refs.2020", "src\Autodesk.Revit.Sdk.Refs.2020\Autodesk.Revit.Sdk.Refs.2020.csproj", "{25F82BD1-63FE-4AB0-A16A-05E0CB634891}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autodesk.Revit.Sdk.Refs.2021", "src\Autodesk.Revit.Sdk.Refs.2021\Autodesk.Revit.Sdk.Refs.2021.csproj", "{082AAEED-7855-4BD1-9A34-04C28BDE732C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autodesk.Revit.Sdk.Refs.2022", "src\Autodesk.Revit.Sdk.Refs.2022\Autodesk.Revit.Sdk.Refs.2022.csproj", "{95DDB464-9AC1-426E-ADD7-15CEFD44BCDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autodesk.Revit.Sdk.Refs.2023", "src\Autodesk.Revit.Sdk.Refs.2023\Autodesk.Revit.Sdk.Refs.2023.csproj", "{ACBC6F54-8369-447B-8980-4BBBEE803806}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autodesk.Revit.Sdk.Refs.2024", "src\Autodesk.Revit.Sdk.Refs.2024\Autodesk.Revit.Sdk.Refs.2024.csproj", "{4E509825-8314-4665-89F1-5CB1B60B9539}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autodesk.Revit.Sdk.Refs", "src\Autodesk.Revit.Sdk.Refs\Autodesk.Revit.Sdk.Refs.csproj", "{AB6F4074-3B8A-4590-9173-BB54FB09CA0A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|x64 = Release|x64
+		Debug|x64 = Debug|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D6F8010-D208-4A46-A889-E4B969671389}.Release|x64.ActiveCfg = Release|x64
+		{4D6F8010-D208-4A46-A889-E4B969671389}.Release|x64.Build.0 = Release|x64
+		{4D6F8010-D208-4A46-A889-E4B969671389}.Debug|x64.ActiveCfg = Debug|x64
+		{4D6F8010-D208-4A46-A889-E4B969671389}.Debug|x64.Build.0 = Debug|x64
+		{61FCD7F7-E85F-4F4B-8C3A-D58C64F24BA8}.Release|x64.ActiveCfg = Release|x64
+		{61FCD7F7-E85F-4F4B-8C3A-D58C64F24BA8}.Release|x64.Build.0 = Release|x64
+		{61FCD7F7-E85F-4F4B-8C3A-D58C64F24BA8}.Debug|x64.ActiveCfg = Debug|x64
+		{61FCD7F7-E85F-4F4B-8C3A-D58C64F24BA8}.Debug|x64.Build.0 = Debug|x64
+		{994C256A-992D-4C42-B04E-ED1B3A823499}.Release|x64.ActiveCfg = Release|x64
+		{994C256A-992D-4C42-B04E-ED1B3A823499}.Release|x64.Build.0 = Release|x64
+		{994C256A-992D-4C42-B04E-ED1B3A823499}.Debug|x64.ActiveCfg = Debug|x64
+		{994C256A-992D-4C42-B04E-ED1B3A823499}.Debug|x64.Build.0 = Debug|x64
+		{F6312B79-A5AF-45B3-947D-0BEC1A633ADF}.Release|x64.ActiveCfg = Release|x64
+		{F6312B79-A5AF-45B3-947D-0BEC1A633ADF}.Release|x64.Build.0 = Release|x64
+		{F6312B79-A5AF-45B3-947D-0BEC1A633ADF}.Debug|x64.ActiveCfg = Debug|x64
+		{F6312B79-A5AF-45B3-947D-0BEC1A633ADF}.Debug|x64.Build.0 = Debug|x64
+		{25F82BD1-63FE-4AB0-A16A-05E0CB634891}.Release|x64.ActiveCfg = Release|x64
+		{25F82BD1-63FE-4AB0-A16A-05E0CB634891}.Release|x64.Build.0 = Release|x64
+		{25F82BD1-63FE-4AB0-A16A-05E0CB634891}.Debug|x64.ActiveCfg = Debug|x64
+		{25F82BD1-63FE-4AB0-A16A-05E0CB634891}.Debug|x64.Build.0 = Debug|x64
+		{082AAEED-7855-4BD1-9A34-04C28BDE732C}.Release|x64.ActiveCfg = Release|x64
+		{082AAEED-7855-4BD1-9A34-04C28BDE732C}.Release|x64.Build.0 = Release|x64
+		{082AAEED-7855-4BD1-9A34-04C28BDE732C}.Debug|x64.ActiveCfg = Debug|x64
+		{082AAEED-7855-4BD1-9A34-04C28BDE732C}.Debug|x64.Build.0 = Debug|x64
+		{95DDB464-9AC1-426E-ADD7-15CEFD44BCDF}.Release|x64.ActiveCfg = Release|x64
+		{95DDB464-9AC1-426E-ADD7-15CEFD44BCDF}.Release|x64.Build.0 = Release|x64
+		{95DDB464-9AC1-426E-ADD7-15CEFD44BCDF}.Debug|x64.ActiveCfg = Debug|x64
+		{95DDB464-9AC1-426E-ADD7-15CEFD44BCDF}.Debug|x64.Build.0 = Debug|x64
+		{ACBC6F54-8369-447B-8980-4BBBEE803806}.Release|x64.ActiveCfg = Release|x64
+		{ACBC6F54-8369-447B-8980-4BBBEE803806}.Release|x64.Build.0 = Release|x64
+		{ACBC6F54-8369-447B-8980-4BBBEE803806}.Debug|x64.ActiveCfg = Debug|x64
+		{ACBC6F54-8369-447B-8980-4BBBEE803806}.Debug|x64.Build.0 = Debug|x64
+		{4E509825-8314-4665-89F1-5CB1B60B9539}.Release|x64.ActiveCfg = Release|x64
+		{4E509825-8314-4665-89F1-5CB1B60B9539}.Release|x64.Build.0 = Release|x64
+		{4E509825-8314-4665-89F1-5CB1B60B9539}.Debug|x64.ActiveCfg = Debug|x64
+		{4E509825-8314-4665-89F1-5CB1B60B9539}.Debug|x64.Build.0 = Debug|x64
+		{AB6F4074-3B8A-4590-9173-BB54FB09CA0A}.Release|x64.ActiveCfg = Release|x64
+		{AB6F4074-3B8A-4590-9173-BB54FB09CA0A}.Release|x64.Build.0 = Release|x64
+		{AB6F4074-3B8A-4590-9173-BB54FB09CA0A}.Debug|x64.ActiveCfg = Debug|x64
+		{AB6F4074-3B8A-4590-9173-BB54FB09CA0A}.Debug|x64.Build.0 = Debug|x64
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+EndGlobal

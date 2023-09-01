@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+<!--        <TargetPath>net48</TargetPath>-->
+        <RevitVersion>2023</RevitVersion>
+        <TargetFramework>net48</TargetFramework>
+    </PropertyGroup>
+</Project>

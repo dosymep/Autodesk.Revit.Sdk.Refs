@@ -1,0 +1,17 @@
+<Project>
+    <Import Project="Autodesk.Revit.Sdk.Refs.*.props"/>
+    
+    <ItemGroup Condition="'$(RevitVersion)' != ''">
+        <PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitVersion)" Version="1.0.0"/>
+    </ItemGroup>
+
+<!--        <ItemGroup Condition="'$(RevitVersion)' != ''">-->
+<!--            <Reference Include="RevitAPI" Pack="false">-->
+<!--                <HintPath>$(MSBuildThisFileDirectory)/$(RevitVersion)/RevitAPI.dll</HintPath>-->
+<!--            </Reference>-->
+
+<!--            <Reference Include="RevitAPIUI" Pack="false">-->
+<!--                <HintPath>$(MSBuildThisFileDirectory)/$(RevitVersion)/RevitAPIUI.dll</HintPath>-->
+<!--            </Reference>-->
+<!--        </ItemGroup>-->
+</Project>

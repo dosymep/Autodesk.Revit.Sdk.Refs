@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Platforms>x64</Platforms>
+        <OutputType>Library</OutputType>
+
+        <Version>1.0.0.0</Version>
+        <FileVersion>1.0.0</FileVersion>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <DebugType>None</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+        <IncludeSymbols>false</IncludeSymbols>
+        <EnableDefaultItems>false</EnableDefaultItems>
+        <EnableDefaultNoneItems>false</EnableDefaultNoneItems>
+        <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <IsPackable>true</IsPackable>
+        <PackageIcon>Revit.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+
+        <NoPackageAnalysis>true</NoPackageAnalysis>
+        <DevelopmentDependency>true</DevelopmentDependency>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+
+        <Authors>dosymep</Authors>
+        <Company>dosymep</Company>
+        <Copyright>© Autodesk Inc. All rights reserved</Copyright>
+        <Description>The Software Development Toolkit (SDK) provides extensive .NET code samples and documentation to help you get started developing with the Revit API.</Description>
+        <PackageTags>dosymep, revit, sdk, api, sdk, autodesk, revitapi, revitsdk, C#, addin, plugin, command, external application, applicaion, $(RevitVersion), revit $(RevitVersion)</PackageTags>
+
+        <RepositoryType>Git</RepositoryType>
+        <RepositoryUrl>https://github.com/dosymep/Autodesk.Revit.SDK.Refs.git</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/dosymep/Autodesk.Revit.SDK.Refs</PackageProjectUrl>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(RevitVersion)' != ''">
+        <Title>Autodesk.Revit.Sdk.Refs.$(RevitVersion)</Title>
+        <PackageId>Autodesk.Revit.Sdk.Refs.$(RevitVersion)</PackageId>
+    </PropertyGroup>
+    
+    <ItemGroup Condition="'$(RevitVersion)' != ''">
+        <Content Include="../../ref/$(RevitVersion)/**" PackagePath="ref/$(TargetFramework)/" Link="lib/%(FileName)$(FileExt)"/>
+        <Content Include="../../assets/README.md" Pack="true" PackagePath="README.md"/>
+        <Content Include="../../assets/LICENSE.md" Pack="true" PackagePath="LICENSE.md"/>
+        <Content Include="../../assets/Revit.$(RevitVersion).png" Pack="true" PackagePath="Revit.png"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <Target Name="CoreCompile"/>
+    <PropertyGroup>
+        <BuildInParallel>false</BuildInParallel>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+    </PropertyGroup>
+</Project>
