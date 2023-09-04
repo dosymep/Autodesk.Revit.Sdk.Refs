@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+    <PropertyGroup>
+        <UseWpf>true</UseWpf>
+        <Platforms>x64</Platforms>
+        <OutputType>Library</OutputType>
+        <RootNamespace>SamplePlugin</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <RevitVersion>2024</RevitVersion>
+        <TargetFramework>net48</TargetFramework>
+        <Configurations>D2016;D2017;D2018;D2019;D2020;D2021;D2022;D2023;D2024;Debug;Release</Configurations>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration.StartsWith(`D`))'">
+        <Optimization>false</Optimization>
+        <DebugSymbols>true</DebugSymbols>
+        <OutputPath>bin\x64\Debug</OutputPath>
+        <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration.StartsWith(`R`))'">
+        <Optimize>true</Optimize>
+        <DebugSymbols>false</DebugSymbols>
+        <OutputPath>bin\x64\Release</OutputPath>
+        <DefineConstants>$(DefineConstants);RELEASE</DefineConstants>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitVersion)" Version="1.0.0" />
+        <PackageReference Include="Autodesk.Revit.Sdk.Refs" Version="1.0.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="RevitCommand.Equal.cs">
+        <DependentUpon>RevitCommand.cs</DependentUpon>
+      </Compile>
+      <Compile Update="RevitCommand.Greater.cs">
+        <DependentUpon>RevitCommand.cs</DependentUpon>
+      </Compile>
+      <Compile Update="RevitCommand.Less.cs">
+        <DependentUpon>RevitCommand.cs</DependentUpon>
+      </Compile>
+    </ItemGroup>
+</Project>
