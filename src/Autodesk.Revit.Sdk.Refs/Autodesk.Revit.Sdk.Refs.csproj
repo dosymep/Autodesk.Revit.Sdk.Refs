@@ -6,6 +6,7 @@
     <PropertyGroup>
         <Title>Autodesk.Revit.Sdk.Refs</Title>
         <PackageId>Autodesk.Revit.Sdk.Refs</PackageId>
+        <DevelopmentDependency>true</DevelopmentDependency>
     </PropertyGroup>
 
     <ItemGroup>

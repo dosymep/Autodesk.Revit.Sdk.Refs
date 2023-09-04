@@ -26,8 +26,7 @@
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
 
         <NoPackageAnalysis>true</NoPackageAnalysis>
-        <DevelopmentDependency>true</DevelopmentDependency>
-        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 
         <Authors>dosymep</Authors>
