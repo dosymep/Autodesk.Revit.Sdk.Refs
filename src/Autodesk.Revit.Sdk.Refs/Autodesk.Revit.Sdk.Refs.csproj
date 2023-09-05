@@ -13,10 +13,8 @@
         <Content Include="../../assets/Revit.png" Pack="true" PackagePath="Revit.png" />
         <Content Include="../../assets/README.md" Pack="true" PackagePath="README.md" />
         <Content Include="../../assets/LICENSE.md" Pack="true" PackagePath="LICENSE.md" />
-        <Content Include="_._" Pack="true" PackagePath="lib/" />
         <Content Include="Autodesk.Revit.Sdk.Refs.props" Pack="true" PackagePath="build/" Link="props/%(FileName)$(FileExt)" />
         <Content Include="Autodesk.Revit.Sdk.Refs.*.props" Pack="true" PackagePath="build/" Link="props/%(FileName)$(FileExt)" />
-        <Content Include="Autodesk.Revit.Sdk.Refs.targets" Pack="true" PackagePath="build/" Link="targets/%(FileName)$(FileExt)" />
     </ItemGroup>
 
     <ItemGroup>
