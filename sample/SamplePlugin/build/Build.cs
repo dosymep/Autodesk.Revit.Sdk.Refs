@@ -19,10 +19,24 @@ class Build : NukeBuild {
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
     readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
 
+    /// <summary>
+    /// The name of the project to be compiled.
+    /// </summary>
     string ProjectName => "SamplePlugin";
+
+    /// <summary>
+    /// Output directory.
+    /// </summary>
     AbsolutePath OutputDirectory => RootDirectory / "bin";
+
+    /// <summary>
+    /// Project directory.
+    /// </summary>
     AbsolutePath ProjectDirectory => RootDirectory / ProjectName;
 
+    /// <summary>
+    /// Cleans <see cref="Build.OutputDirectory"/> and build and obj folders in project.
+    /// </summary>
     Target Clean => _ => _
         .Executes(() => {
             OutputDirectory.CreateOrCleanDirectory();
@@ -32,6 +46,9 @@ class Build : NukeBuild {
                 .DeleteDirectories();
         });
 
+    /// <summary>
+    /// Compile project with all revit versions.
+    /// </summary>
     Target Compile => _ => _
         .DependsOn(Clean)
         .Executes(() => {
@@ -39,14 +56,12 @@ class Build : NukeBuild {
                 .DisableNoRestore()
                 .SetProjectFile(ProjectName)
                 .SetConfiguration(Configuration)
-                //.SetOutputDirectory(OutputDirectory)
                 .When(IsServerBuild, _ => _
                     .EnableContinuousIntegrationBuild())
                 .CombineWith(RevitVersion.GetRevitVersions(), (settings, version) => {
                     return settings
                         .SetOutputDirectory(OutputDirectory / version)
                         .SetProperty("RevitVersion", (int) version);
-                    //.SetProperty("AssemblyName", $"TestSdk_{version}");
                 }));
         });
 }

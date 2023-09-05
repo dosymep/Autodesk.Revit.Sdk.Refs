@@ -1,4 +1,6 @@
-﻿namespace SamplePlugin {
+﻿using System;
+
+namespace SamplePlugin {
     public partial class RevitCommand {
 #if REVIT_2016
         public int RevitVersion => 2016;
