@@ -15,12 +15,12 @@ public class RevitVersion : Enumeration {
     /// <summary>
     /// Autodesk Revit 2017 version configuration.
     /// </summary>
-    public static readonly RevitVersion Rv2017 = new() {Value = "2017", TargetFramework = "net45"};
+    public static readonly RevitVersion Rv2017 = new() {Value = "2017", TargetFramework = "net452"};
 
     /// <summary>
     /// Autodesk Revit 2018 version configuration.
     /// </summary>
-    public static readonly RevitVersion Rv2018 = new() {Value = "2018", TargetFramework = "net45"};
+    public static readonly RevitVersion Rv2018 = new() {Value = "2018", TargetFramework = "net452"};
 
     /// <summary>
     /// Autodesk Revit 2019 version configuration.
