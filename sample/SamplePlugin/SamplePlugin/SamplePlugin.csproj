@@ -27,7 +27,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitVersion)" Version="1.0.0" />
+        <PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitVersion)" Version="1.0.0"/>
         <PackageReference Include="Autodesk.Revit.Sdk.Refs" Version="1.0.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -39,14 +39,14 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="RevitCommand.Equal.cs">
-        <DependentUpon>RevitCommand.cs</DependentUpon>
-      </Compile>
-      <Compile Update="RevitCommand.Greater.cs">
-        <DependentUpon>RevitCommand.cs</DependentUpon>
-      </Compile>
-      <Compile Update="RevitCommand.Less.cs">
-        <DependentUpon>RevitCommand.cs</DependentUpon>
-      </Compile>
+        <Compile Update="RevitCommand.Equal.cs">
+            <DependentUpon>RevitCommand.cs</DependentUpon>
+        </Compile>
+        <Compile Update="RevitCommand.Greater.cs">
+            <DependentUpon>RevitCommand.cs</DependentUpon>
+        </Compile>
+        <Compile Update="RevitCommand.Less.cs">
+            <DependentUpon>RevitCommand.cs</DependentUpon>
+        </Compile>
     </ItemGroup>
 </Project>

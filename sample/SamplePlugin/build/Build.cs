@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 
 using Nuke.Common;
@@ -53,15 +54,18 @@ class Build : NukeBuild {
         .DependsOn(Clean)
         .Executes(() => {
             DotNetBuild(s => s
+                .EnableForce()
                 .DisableNoRestore()
                 .SetProjectFile(ProjectName)
                 .SetConfiguration(Configuration)
                 .When(IsServerBuild, _ => _
                     .EnableContinuousIntegrationBuild())
+                .SetProcessArgumentConfigurator(a => a.Add("--restore"))
                 .CombineWith(RevitVersion.GetRevitVersions(), (settings, version) => {
                     return settings
                         .SetOutputDirectory(OutputDirectory / version)
-                        .SetProperty("RevitVersion", (int) version);
+                        .SetProperty("RevitVersion", (int) version)
+                        .SetProperty("TargetFramework", version.TargetFramework);
                 }));
         });
 }

@@ -10,47 +10,52 @@ public class RevitVersion : Enumeration {
     /// <summary>
     /// Autodesk Revit 2016 version configuration.
     /// </summary>
-    public static readonly RevitVersion Rv2016 = new() {Value = "2016"};
+    public static readonly RevitVersion Rv2016 = new() {Value = "2016", TargetFramework = "net45"};
 
     /// <summary>
     /// Autodesk Revit 2017 version configuration.
     /// </summary>
-    public static readonly RevitVersion Rv2017 = new() {Value = "2017"};
+    public static readonly RevitVersion Rv2017 = new() {Value = "2017", TargetFramework = "net45"};
 
     /// <summary>
     /// Autodesk Revit 2018 version configuration.
     /// </summary>
-    public static readonly RevitVersion Rv2018 = new() {Value = "2018"};
+    public static readonly RevitVersion Rv2018 = new() {Value = "2018", TargetFramework = "net45"};
 
     /// <summary>
     /// Autodesk Revit 2019 version configuration.
     /// </summary>
-    public static readonly RevitVersion Rv2019 = new() {Value = "2019"};
+    public static readonly RevitVersion Rv2019 = new() {Value = "2019", TargetFramework = "net47"};
 
     /// <summary>
     /// Autodesk Revit 2020 version configuration.
     /// </summary>
-    public static readonly RevitVersion Rv2020 = new() {Value = "2020"};
+    public static readonly RevitVersion Rv2020 = new() {Value = "2020", TargetFramework = "net47"};
 
     /// <summary>
     /// Autodesk Revit 2021 version configuration.
     /// </summary>
-    public static readonly RevitVersion Rv2021 = new() {Value = "2021"};
+    public static readonly RevitVersion Rv2021 = new() {Value = "2021", TargetFramework = "net48"};
 
     /// <summary>
     /// Autodesk Revit 2022 version configuration.
     /// </summary>
-    public static readonly RevitVersion Rv2022 = new() {Value = "2022"};
+    public static readonly RevitVersion Rv2022 = new() {Value = "2022", TargetFramework = "net48"};
 
     /// <summary>
     /// Autodesk Revit 2023 version configuration.
     /// </summary>
-    public static readonly RevitVersion Rv2023 = new() {Value = "2023"};
+    public static readonly RevitVersion Rv2023 = new() {Value = "2023", TargetFramework = "net48"};
 
     /// <summary>
     /// Autodesk Revit 2024 version configuration.
     /// </summary>
     public static readonly RevitVersion Rv2024 = new() {Value = "2024"};
+    
+    /// <summary>
+    /// Target framework.
+    /// </summary>
+    public string TargetFramework { get; set; }
     
     public static implicit operator string(RevitVersion revitVersion) => revitVersion.Value;
 
