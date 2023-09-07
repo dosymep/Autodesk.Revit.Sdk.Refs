@@ -11,7 +11,7 @@ Add project configurations with revit versions in name
 <PropertyGroup>
     <RevitVersion>2016</RevitVersion> <!-- set default revit version -->
     <TargetFramework>net45</TargetFramework> <!-- set default target framework -->
-    <Configurations>Debug;Relese;D2016;D2017;D2018;D2019;D2020;D2021;D2022;D2023;D2024</Configurations>
+    <Configurations>Debug;Release;D2016;D2017;D2018;D2019;D2020;D2021;D2022;D2023;D2024</Configurations>
 </PropertyGroup>
 ```
 
