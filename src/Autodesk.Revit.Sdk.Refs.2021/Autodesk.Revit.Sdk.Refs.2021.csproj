@@ -3,4 +3,10 @@
         <RevitVersion>2021</RevitVersion>
         <TargetFramework>net48</TargetFramework>
     </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="11.0.2">
+            <IncludeAssets>compile</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
 </Project>

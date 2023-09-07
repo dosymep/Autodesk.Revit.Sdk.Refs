@@ -3,4 +3,10 @@
         <RevitVersion>2019</RevitVersion>
         <TargetFramework>net47</TargetFramework>
     </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="9.0.1">
+            <IncludeAssets>compile</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
 </Project>

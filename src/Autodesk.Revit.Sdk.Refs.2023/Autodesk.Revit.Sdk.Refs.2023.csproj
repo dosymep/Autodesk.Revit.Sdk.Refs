@@ -1,7 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-<!--        <TargetPath>net48</TargetPath>-->
         <RevitVersion>2023</RevitVersion>
         <TargetFramework>net48</TargetFramework>
     </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1">
+            <IncludeAssets>compile</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
 </Project>
