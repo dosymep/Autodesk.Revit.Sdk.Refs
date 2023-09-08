@@ -60,12 +60,6 @@ class Build : NukeBuild {
                 .SetConfiguration(Configuration)
                 .When(IsServerBuild, _ => _
                     .EnableContinuousIntegrationBuild())
-                .SetProcessArgumentConfigurator(a => a.Add("--restore"))
-                .CombineWith(RevitVersion.GetRevitVersions(), (settings, version) => {
-                    return settings
-                        .SetOutputDirectory(OutputDirectory / version)
-                        .SetProperty("RevitVersion", (int) version)
-                        .SetProperty("TargetFramework", version.TargetFramework);
-                }));
+                .SetProperty("RevitVersion", 2016));
         });
 }
