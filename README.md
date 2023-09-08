@@ -32,7 +32,7 @@ Add package reference
 ### Build Revit Project
 
 See sample project in this [folder](sample/SamplePlugin).  
-You should compile the Debug configuration.  
+You should compile Debug or Release configuration.  
 Other configurations needs to help write code with constants.
 
 #### dotnet cli
@@ -48,7 +48,7 @@ DotNetBuild(s => s
     .DisableNoRestore()
     .SetProjectFile(<ProjectName>)
     .SetConfiguration(<Configuration>)
-    .SetProperty("RevitVersion", (int) RevitVersion.Rv<RevitVersion>));
+    .SetProperty("RevitVersion", (int) <RevitVersion>));
 ```
 
 ## Defined constants
