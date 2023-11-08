@@ -15,10 +15,6 @@ env:
 jobs:
   build:
     runs-on: windows-latest
-    strategy:
-      matrix: 
-        revit-version: [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
-
     steps:
       - uses: actions/checkout@v4
       
@@ -28,20 +24,44 @@ jobs:
         with:
           dotnet-version: 7.0.x
       
+      # Current date: https://stackoverflow.com/questions/60942067/get-current-date-and-time-in-github-workflows
+      - name: Current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y.%m.%d')"
+      
       # Pack project: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-pack
       - name: Pack
-        run: dotnet pack src/${{ env.project }}.${{ matrix.revit-version }} -c ${{ env.configuration }} -o ${{ env.output }}
-        
-      # Fetch version: https://github.com/kzrnm/get-net-sdk-project-versions-action
-      - name: Fetch version
-        uses: kzrnm/get-net-sdk-project-versions-action@v1
-        id: get-version
-        with:
-          proj-path: src/${{ env.project }}.${{ matrix.revit-version }}/${{ env.project }}.${{ matrix.revit-version }}.csproj
+        run: dotnet pack -c ${{ env.configuration }} -o ${{ env.output }}
       
       # Upload the nuget package: https://github.com/marketplace/actions/upload-a-build-artifact
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.project }}.${{ matrix.revit-version }}.nupkg
-          path: ${{ env.output }}/${{ env.project }}.${{ matrix.revit-version }}.${{ steps.get-version.outputs.package-version }}.nupkg
+          name: ${{ env.project }}
+          path: ${{ env.output }}/*.nupkg
+      
+#      # Publish the nuget package: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push
+#      - name: Publish nuget
+#        env:
+#          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+#        run: dotnet nuget push ${{ env.output }}/*.nupkg -s https://api.nuget.org/v3/index.json -k $NUGET_API_KEY --skip-duplicate
+#            
+#      # Publish the nuget package: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push
+#      - name: Publish github
+#        env:
+#          NUGET_API_KEY: ${{ github.TOKEN }}
+#        run: dotnet nuget push ${{ env.output }}/*.nupkg -s https://nuget.pkg.github.com/${{ github.REPOSITORY_OWNER }}/index.json -k $NUGET_API_KEY --skip-duplicate
+            
+      # Publish release: https://github.com/softprops/action-gh-release
+      - name: Publish Release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ github.TOKEN }}
+        with:
+          tag_name: v${{ steps.date.outputs.date }}
+          name: v${{ steps.date.outputs.date }}
+          body_path: README.md
+          draft: false
+          prerelease: false
+          files: |
+            ${{ env.output }}/*.nupkg
