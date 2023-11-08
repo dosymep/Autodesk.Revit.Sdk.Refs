@@ -31,13 +31,6 @@ jobs:
       - name: Pack
         run: dotnet pack -c ${{ env.configuration }} -o ${{ env.output }}
       
-      # Fetch version: https://github.com/kzrnm/get-net-sdk-project-versions-action
-      - name: Fetch version
-        uses: kzrnm/get-net-sdk-project-versions-action@v1
-        id: get-version
-        with:
-          proj-path: src/${{ env.project }}/${{ env.project }}.csproj
-      
       # Upload the nuget package: https://github.com/marketplace/actions/upload-a-build-artifact
       - name: Upload
         uses: actions/upload-artifact@v3
