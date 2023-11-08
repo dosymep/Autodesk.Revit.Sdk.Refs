@@ -4,6 +4,13 @@
     </PropertyGroup>
 
     <PropertyGroup>
+        <Version>1.0.0</Version>
+        <FileVersion>1.0.0</FileVersion>
+        <PackageVersion>1.0.0</PackageVersion>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
         <Title>Autodesk.Revit.Sdk.Refs</Title>
         <PackageId>Autodesk.Revit.Sdk.Refs</PackageId>
         <DevelopmentDependency>true</DevelopmentDependency>
