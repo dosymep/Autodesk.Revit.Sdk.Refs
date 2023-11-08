@@ -1,11 +1,16 @@
 # Autodesk.Revit.SDK.Refs
 
+[![JetBrains Rider](https://img.shields.io/badge/JetBrains-Rider-blue.svg)](https://www.jetbrains.com/rider)
+[![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://en.wikipedia.org/wiki/MIT_License)
+[![Revit 2016-2024](https://img.shields.io/badge/Revit-2016--2024-blue.svg)](https://www.autodesk.com/products/revit/overview)
+
+
 Revit SDK refs assemblies.  
 Only metadata from assemblies by [Refasmer](https://github.com/JetBrains/Refasmer).
 
 ## Usage
 
-### Add project configurations with revit versions in name
+Add project configurations with revit versions in name
 
 ```xml
 <PropertyGroup>
@@ -15,7 +20,7 @@ Only metadata from assemblies by [Refasmer](https://github.com/JetBrains/Refasme
 </PropertyGroup>
 ```
 
-### Add package reference
+Add package reference
 
 ```xml
 <ItemGroup>

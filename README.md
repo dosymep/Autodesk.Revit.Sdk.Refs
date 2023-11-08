@@ -1,5 +1,9 @@
 # Autodesk.Revit.SDK.Refs
 
+[![JetBrains Rider](https://img.shields.io/badge/JetBrains-Rider-blue.svg)](https://www.jetbrains.com/rider)
+[![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.md)
+[![Revit 2016-2024](https://img.shields.io/badge/Revit-2016--2024-blue.svg)](https://www.autodesk.com/products/revit/overview)
+
 Revit SDK refs assemblies.  
 Only metadata from assemblies by [Refasmer](https://github.com/JetBrains/Refasmer).
 
@@ -20,7 +24,7 @@ Add package reference
 ```xml
 <ItemGroup>
     <!-- package reference with revit dlls -->
-    <PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitVersion)" Version="1.0.0" />
+    <PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitVersion)" Version="*" />
 </ItemGroup>
 ```
 
