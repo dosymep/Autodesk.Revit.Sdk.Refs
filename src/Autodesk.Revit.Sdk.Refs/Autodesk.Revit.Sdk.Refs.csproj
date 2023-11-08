@@ -28,8 +28,4 @@
         <ProjectReference Condition="'$(TargetFramework)' == 'net48'" Include="../Autodesk.Revit.Sdk.Refs.2023/Autodesk.Revit.Sdk.Refs.2023.csproj" />
         <ProjectReference Condition="'$(TargetFramework)' == 'net48'" Include="../Autodesk.Revit.Sdk.Refs.2024/Autodesk.Revit.Sdk.Refs.2024.csproj" />
     </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Remove="Microsoft.NETFramework.ReferenceAssemblies" />
-    </ItemGroup>
 </Project>
