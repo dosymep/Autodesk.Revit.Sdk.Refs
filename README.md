@@ -126,15 +126,13 @@ Install [Refasmer](https://github.com/JetBrains/Refasmer) and run:
 ```
 refasmer -m -i -w AdWindows.dll
 refasmer -r -i -w PackageContentsParser.dll
-refasmer -r -i -w Revit.IFC.Common.dll
-refasmer -r -i -w Revit.IFC.Export.dll
-refasmer -r -i -w Revit.IFC.Import.dll
 refasmer -r -i -w RevitAddInUtility.dll
 refasmer -r -i -w RevitAPI.dll
 refasmer -r -i -w RevitAPIBrowserUtils.dll
 refasmer -r -i -w RevitAPIIFC.dll
 refasmer -r -i -w RevitAPIMacros.dll
 refasmer -r -i -w RevitAPIUI.dll
+refasmer -r -i -w RevitAPIUIMacros.dll
 refasmer -r -i -w RevitNET.dll
 refasmer -m -i -w UIFramework.dll
 ```
