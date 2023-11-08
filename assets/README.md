@@ -11,7 +11,7 @@ Only metadata from assemblies by [Refasmer](https://github.com/JetBrains/Refasme
 <PropertyGroup>
     <RevitVersion>2016</RevitVersion> <!-- set default revit version -->
     <TargetFramework>net45</TargetFramework> <!-- set default target framework -->
-    <Configurations>Debug;Relese;D2016;D2017;D2018;D2019;D2020;D2021;D2022;D2023;D2024</Configurations>
+    <Configurations>Debug;Release;D2016;D2017;D2018;D2019;D2020;D2021;D2022;D2023;D2024</Configurations>
 </PropertyGroup>
 ```
 
@@ -20,18 +20,35 @@ Only metadata from assemblies by [Refasmer](https://github.com/JetBrains/Refasme
 ```xml
 <ItemGroup>
     <!-- package reference with revit dlls -->
-    <PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitVersion)" Version="1.0.0" />
-
-    <!-- package reference with revit constants -->
-    <PackageReference Include="Autodesk.Revit.Sdk.Refs" Version="1.0.0">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitVersion)" Version="*" />
 </ItemGroup>
 ```
+
+### Create &lt;RevitVersion&gt; build props
+```xml
+<Project>
+    <PropertyGroup Condition="$(Configuration.Contains('&lt;RevitVersion&gt;'))">
+        <RevitVersion>&lt;RevitVersion&gt;</RevitVersion>
+        <TargetFramework>&lt;TargetFramework&gt;</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(RevitVersion)' != '' and $(RevitVersion) == &lt;RevitVersion&gt;">
+        <DefineConstants>$(DefineConstants);REVIT_&lt;RevitVersion&gt;</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(RevitVersion)' != '' and $(RevitVersion) &lt;= &lt;RevitVersion&gt;">
+        <DefineConstants>$(DefineConstants);REVIT_&lt;RevitVersion&gt;_OR_LESS</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(RevitVersion)' != '' and $(RevitVersion) &gt;= &lt;RevitVersion&gt;">
+        <DefineConstants>$(DefineConstants);REVIT_&lt;RevitVersion&gt;_OR_GREATER</DefineConstants>
+    </PropertyGroup>
+</Project>
+```
+
 ### Build Revit Project
 
-See sample project in this [folder](../sample/SamplePlugin).  
+See sample project in this [folder](https://github.com/dosymep/Autodesk.Revit.Sdk.Refs/tree/master/sample/SamplePlugin).  
 You should compile the Debug configuration.  
 Other configurations needs to help write code with constants.
 

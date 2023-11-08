@@ -21,14 +21,31 @@ Add package reference
 <ItemGroup>
     <!-- package reference with revit dlls -->
     <PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitVersion)" Version="1.0.0" />
-
-    <!-- package reference with revit constants -->
-    <PackageReference Include="Autodesk.Revit.Sdk.Refs" Version="1.0.0">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
 </ItemGroup>
 ```
+
+### Create &lt;RevitVersion&gt; build props
+```xml
+<Project>
+    <PropertyGroup Condition="$(Configuration.Contains('&lt;RevitVersion&gt;'))">
+        <RevitVersion>&lt;RevitVersion&gt;</RevitVersion>
+        <TargetFramework>&lt;TargetFramework&gt;</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(RevitVersion)' != '' and $(RevitVersion) == &lt;RevitVersion&gt;">
+        <DefineConstants>$(DefineConstants);REVIT_&lt;RevitVersion&gt;</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(RevitVersion)' != '' and $(RevitVersion) &lt;= &lt;RevitVersion&gt;">
+        <DefineConstants>$(DefineConstants);REVIT_&lt;RevitVersion&gt;_OR_LESS</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(RevitVersion)' != '' and $(RevitVersion) &gt;= &lt;RevitVersion&gt;">
+        <DefineConstants>$(DefineConstants);REVIT_&lt;RevitVersion&gt;_OR_GREATER</DefineConstants>
+    </PropertyGroup>
+</Project>
+```
+
 ### Build Revit Project
 
 See sample project in this [folder](sample/SamplePlugin).  

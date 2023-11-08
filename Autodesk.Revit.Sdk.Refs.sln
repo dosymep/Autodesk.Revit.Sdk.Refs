@@ -2,7 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C4E50B2C-639F-45F6-B3CC-2DB03AA9A1E1}"
 	ProjectSection(SolutionItems) = preProject
-		src\Directory.Build.props = src\Directory.Build.props
 		.editorconfig = .editorconfig
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
@@ -73,9 +72,7 @@ Global
 		{4E509825-8314-4665-89F1-5CB1B60B9539}.Debug|x64.ActiveCfg = Debug|x64
 		{4E509825-8314-4665-89F1-5CB1B60B9539}.Debug|x64.Build.0 = Debug|x64
 		{AB6F4074-3B8A-4590-9173-BB54FB09CA0A}.Release|x64.ActiveCfg = Release|x64
-		{AB6F4074-3B8A-4590-9173-BB54FB09CA0A}.Release|x64.Build.0 = Release|x64
 		{AB6F4074-3B8A-4590-9173-BB54FB09CA0A}.Debug|x64.ActiveCfg = Debug|x64
-		{AB6F4074-3B8A-4590-9173-BB54FB09CA0A}.Debug|x64.Build.0 = Debug|x64
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
