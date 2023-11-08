@@ -18,7 +18,7 @@ jobs:
     strategy:
       matrix: 
         revit-version: [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
-      
+
     steps:
       - uses: actions/checkout@v4
       
@@ -28,12 +28,9 @@ jobs:
         with:
           dotnet-version: 7.0.x
       
-      # Build project: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-build
-      - name: Build
-        run: dotnet build ${{ matrix.revit-version }} -c ${{ env.configuration }}
-
+      # Pack project: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-pack
       - name: Pack
-        run: dotnet pack ${{ matrix.revit-version }} -c ${{ env.configuration }} -o ${{ env.output }}
+        run: dotnet pack src/${{ env.project }}.${{ matrix.revit-version }} -c ${{ env.configuration }} -o ${{ env.output }}
         
       # Fetch version: https://github.com/kzrnm/get-net-sdk-project-versions-action
       - name: Fetch version
