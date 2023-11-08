@@ -1,0 +1,45 @@
+name: main
+
+permissions:
+  packages: write
+  contents: write
+
+on:
+  workflow_dispatch:
+
+env:
+  output: bin
+  project: Autodesk.Revit.Sdk.Refs
+  configuration: Release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      # Install the .NET Core workload
+      - name: Install .NET Core
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+      
+      # Build project: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-build
+      - name: Build
+        run: dotnet build -c ${{ env.configuration }}
+
+      - name: Pack
+        run: dotnet pack -c ${{ env.configuration }} -o ${{ env.output }}
+      
+      # Fetch version: https://github.com/kzrnm/get-net-sdk-project-versions-action
+      - name: Fetch version
+        uses: kzrnm/get-net-sdk-project-versions-action@v1
+        id: get-version
+        with:
+          proj-path: src/${{ env.project }}/${{ env.project }}.csproj
+      
+      # Upload the nuget package: https://github.com/marketplace/actions/upload-a-build-artifact
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          path: ${{ env.output }}/*.nupkg
