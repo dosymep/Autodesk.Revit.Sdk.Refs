@@ -26,7 +26,6 @@ jobs:
       
       # Current date: https://stackoverflow.com/questions/60942067/get-current-date-and-time-in-github-workflows
       - name: Current date
-        id: date
         run: echo "date=$(date +'%Y%m%d')" >> $GITHUB_ENV
       
       # Pack project: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-pack
@@ -41,11 +40,11 @@ jobs:
           name: ${{ env.project }}
           path: ${{ env.output }}/*.nupkg
       
-#      # Publish the nuget package: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push
-#      - name: Publish nuget
-#        env:
-#          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-#        run: dotnet nuget push ${{ env.output }}/**.nupkg -s https://api.nuget.org/v3/index.json -k $NUGET_API_KEY --skip-duplicate
+      # Publish the nuget package: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push
+      - name: Publish nuget
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: dotnet nuget push ${{ env.output }}/**.nupkg -s https://api.nuget.org/v3/index.json -k $NUGET_API_KEY --skip-duplicate
 
       # Publish the nuget package: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push
       - name: Publish github
@@ -59,8 +58,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.TOKEN }}
         with:
-          tag_name: v${{ steps.date.outputs.date }}
-          name: v${{ steps.date.outputs.date }}
+          tag_name: v${{ github.date }}
+          name: v${{ github.date }}
           body_path: README.md
           draft: false
           prerelease: false
