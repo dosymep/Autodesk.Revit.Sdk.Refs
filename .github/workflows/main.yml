@@ -55,7 +55,7 @@ jobs:
       - name: Publish github
         env:
           NUGET_API_KEY: ${{ github.TOKEN }}
-        run: dotnet nuget push "${{ env.output }}/${{ env.project }}.${{ matrix.revit-version }}.nupkg" -s https://nuget.pkg.github.com/${{ github.REPOSITORY_OWNER }}/index.json -k $NUGET_API_KEY --skip-duplicate
+        run: dotnet nuget push "${{ github.GITHUB_WORKSPACE }}${{ env.output }}/${{ env.project }}.${{ matrix.revit-version }}.nupkg" -s https://nuget.pkg.github.com/${{ github.REPOSITORY_OWNER }}/index.json -k $NUGET_API_KEY --skip-duplicate
             
       # Publish release: https://github.com/softprops/action-gh-release
       - name: Publish Release
