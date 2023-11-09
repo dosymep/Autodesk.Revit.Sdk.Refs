@@ -14,7 +14,7 @@ env:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       
@@ -26,8 +26,7 @@ jobs:
       
       # Current date: https://stackoverflow.com/questions/60942067/get-current-date-and-time-in-github-workflows
       - name: Current date
-        id: date
-        run: echo "::set-output name=date::$(date +'%Y.%m.%d')"
+        run: echo "date=$(date +'%Y%m%d')" >> $GITHUB_ENV
       
       # Pack project: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-pack
       - name: Pack
@@ -37,6 +36,7 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
+          if-no-files-found: error
           name: ${{ env.project }}
           path: ${{ env.output }}/*.nupkg
       
@@ -44,13 +44,13 @@ jobs:
       - name: Publish nuget
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-        run: dotnet nuget push ${{ env.output }}/*.nupkg -s https://api.nuget.org/v3/index.json -k $NUGET_API_KEY --skip-duplicate
+        run: dotnet nuget push ${{ env.output }}/**.nupkg -s https://api.nuget.org/v3/index.json -k $NUGET_API_KEY --skip-duplicate
 
       # Publish the nuget package: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push
       - name: Publish github
         env:
           NUGET_API_KEY: ${{ github.TOKEN }}
-        run: dotnet nuget push ${{ env.output }}/*.nupkg -s https://nuget.pkg.github.com/${{ github.REPOSITORY_OWNER }}/index.json -k $NUGET_API_KEY --skip-duplicate
+        run: dotnet nuget push ${{ env.output }}/**.nupkg -s https://nuget.pkg.github.com/${{ github.REPOSITORY_OWNER }}/index.json -k $NUGET_API_KEY --skip-duplicate
             
       # Publish release: https://github.com/softprops/action-gh-release
       - name: Publish Release
@@ -58,8 +58,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.TOKEN }}
         with:
-          tag_name: v${{ steps.date.outputs.date }}
-          name: v${{ steps.date.outputs.date }}
+          tag_name: v${{ env.date }}
+          name: v${{ env.date }}
           body_path: README.md
           draft: false
           prerelease: false
