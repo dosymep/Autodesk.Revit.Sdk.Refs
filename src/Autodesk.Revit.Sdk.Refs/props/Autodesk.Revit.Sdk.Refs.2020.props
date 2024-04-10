@@ -1,0 +1,6 @@
+<Project>
+    <PropertyGroup Condition="$(Configuration.Contains('2020'))">
+        <RevitVersion>2020</RevitVersion>
+        <TargetFramework>net47</TargetFramework>
+    </PropertyGroup>
+</Project>

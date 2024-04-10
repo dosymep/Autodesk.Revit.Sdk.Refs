@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFrameworks>net45;net452;net47;net48</TargetFrameworks>
+        <TargetFramework>net48</TargetFramework>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -20,19 +20,11 @@
         <Content Include="../../assets/Revit.png" Pack="true" PackagePath="Revit.png" />
         <Content Include="../../assets/README.md" Pack="true" PackagePath="README.md" />
         <Content Include="../../assets/LICENSE.md" Pack="true" PackagePath="LICENSE.md" />
-        <Content Include="Autodesk.Revit.Sdk.Refs.props" Pack="true" PackagePath="build/" Link="props/%(FileName)$(FileExt)" />
-        <Content Include="Autodesk.Revit.Sdk.Refs.*.props" Pack="true" PackagePath="build/" Link="props/%(FileName)$(FileExt)" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <ProjectReference Condition="'$(TargetFramework)' == 'net45'" Include="../Autodesk.Revit.Sdk.Refs.2016/Autodesk.Revit.Sdk.Refs.2016.csproj" />
-        <ProjectReference Condition="'$(TargetFramework)' == 'net452'" Include="../Autodesk.Revit.Sdk.Refs.2017/Autodesk.Revit.Sdk.Refs.2017.csproj" />
-        <ProjectReference Condition="'$(TargetFramework)' == 'net452'" Include="../Autodesk.Revit.Sdk.Refs.2018/Autodesk.Revit.Sdk.Refs.2018.csproj" />
-        <ProjectReference Condition="'$(TargetFramework)' == 'net47'" Include="../Autodesk.Revit.Sdk.Refs.2019/Autodesk.Revit.Sdk.Refs.2019.csproj" />
-        <ProjectReference Condition="'$(TargetFramework)' == 'net47'" Include="../Autodesk.Revit.Sdk.Refs.2020/Autodesk.Revit.Sdk.Refs.2020.csproj" />
-        <ProjectReference Condition="'$(TargetFramework)' == 'net48'" Include="../Autodesk.Revit.Sdk.Refs.2021/Autodesk.Revit.Sdk.Refs.2021.csproj" />
-        <ProjectReference Condition="'$(TargetFramework)' == 'net48'" Include="../Autodesk.Revit.Sdk.Refs.2022/Autodesk.Revit.Sdk.Refs.2022.csproj" />
-        <ProjectReference Condition="'$(TargetFramework)' == 'net48'" Include="../Autodesk.Revit.Sdk.Refs.2023/Autodesk.Revit.Sdk.Refs.2023.csproj" />
-        <ProjectReference Condition="'$(TargetFramework)' == 'net48'" Include="../Autodesk.Revit.Sdk.Refs.2024/Autodesk.Revit.Sdk.Refs.2024.csproj" />
+        
+        <Content Include="Autodesk.Revit.Sdk.Refs.props" Pack="true" PackagePath="build/" Link="%(FileName)$(FileExt)" />
+        <Content Include="props/Autodesk.Revit.Sdk.Refs.*.props" Pack="true" PackagePath="build/" Link="props/%(FileName)$(FileExt)" />
+        
+        <Content Include="Autodesk.Revit.Sdk.Refs.targets" Pack="true" PackagePath="build/" Link="%(FileName)$(FileExt)" />
+        <Content Include="targets/Autodesk.Revit.Sdk.Refs.*.targets" Pack="true" PackagePath="build/" Link="targets/%(FileName)$(FileExt)" />
     </ItemGroup>
 </Project>
