@@ -16,21 +16,10 @@ namespace SamplePlugin {
             var window = new MainWindow();
             window.Greeting = $"Hello Revit {RevitVersion}!" +
                               $"{Environment.NewLine}" +
-                              $"OrLess: {GetLessVersions()}" +
-                              $"{Environment.NewLine}" +
                               $"OrGreater: {GetGreaterVersions()}";
             
             window.ShowDialog();
             return Result.Succeeded;
-        }
-
-        private string GetLessVersions() {
-            var values = typeof(RevitCommand)
-                .GetProperties(BindingFlags.Instance | BindingFlags.Public)
-                .Where(item => item.Name.StartsWith("RevitVersionOrLess"))
-                .Select(item => item.GetValue(this));
-
-            return string.Join(";", values);
         }
 
         private string GetGreaterVersions() {
