@@ -10,10 +10,4 @@
         <PackageVersion>1.0.0</PackageVersion>
         <AssemblyVersion>1.0.0</AssemblyVersion>
     </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.1">
-            <IncludeAssets>compile</IncludeAssets>
-        </PackageReference>
-    </ItemGroup>
 </Project>
