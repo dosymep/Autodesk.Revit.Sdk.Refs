@@ -6,6 +6,13 @@
     </PropertyGroup>
 
     <PropertyGroup>
+        <Version>1.1.0</Version>
+        <FileVersion>1.1.0</FileVersion>
+        <PackageVersion>1.1.0</PackageVersion>
+        <AssemblyVersion>1.1.0</AssemblyVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
         <DebugType>None</DebugType>
         <DebugSymbols>false</DebugSymbols>
         <IncludeSymbols>false</IncludeSymbols>
@@ -32,8 +39,8 @@
         <PackageTags>dosymep, revit, sdk, api, sdk, autodesk, revitapi, revitsdk, C#, addin, plugin, command, external application, applicaion, $(RevitVersion), revit $(RevitVersion)</PackageTags>
 
         <RepositoryType>Git</RepositoryType>
-        <RepositoryUrl>https://github.com/dosymep/Autodesk.Revit.SDK.Refs.git</RepositoryUrl>
-        <PackageProjectUrl>https://github.com/dosymep/Autodesk.Revit.SDK.Refs</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/dosymep/Autodesk.Revit.Sdk.Refs.git</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/dosymep/Autodesk.Revit.Sdk.Refs</PackageProjectUrl>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(RevitVersion)' != ''">
@@ -42,10 +49,10 @@
     </PropertyGroup>
     
     <ItemGroup Condition="'$(RevitVersion)' != ''">
-        <Content Include="../../ref/$(RevitVersion)/**" PackagePath="ref/$(TargetFramework)/" Link="lib/%(FileName)$(FileExt)"/>
         <Content Include="../../assets/README.md" Pack="true" PackagePath="README.md"/>
         <Content Include="../../assets/LICENSE.md" Pack="true" PackagePath="LICENSE.md"/>
         <Content Include="../../assets/Revit.$(RevitVersion).png" Pack="true" PackagePath="Revit.png"/>
+        <Content Include="../../lib/$(RevitVersion)/**" PackagePath="ref/$(TargetFramework)/" Link="lib/%(FileName)$(FileExt)"/>
     </ItemGroup>
 
     <Target Name="CoreCompile"/>

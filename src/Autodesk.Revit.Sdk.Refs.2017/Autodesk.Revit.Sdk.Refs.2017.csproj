@@ -3,11 +3,4 @@
         <RevitVersion>2017</RevitVersion>
         <TargetFramework>net452</TargetFramework>
     </PropertyGroup>
-
-    <PropertyGroup>
-        <Version>1.0.0</Version>
-        <FileVersion>1.0.0</FileVersion>
-        <PackageVersion>1.0.0</PackageVersion>
-        <AssemblyVersion>1.0.0</AssemblyVersion>
-    </PropertyGroup>
 </Project>
