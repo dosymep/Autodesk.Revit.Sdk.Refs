@@ -10,6 +10,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <None Include="../../.github/workflows/*.yml" LinkBase="ci"/>
+        
         <Content Include="../../assets/Revit.png" Pack="true" PackagePath="Revit.png" />
         <Content Include="../../assets/README.md" Pack="true" PackagePath="README.md" />
         <Content Include="../../assets/LICENSE.md" Pack="true" PackagePath="LICENSE.md" />
