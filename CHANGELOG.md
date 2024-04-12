@@ -24,13 +24,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Add
 
-- Revit 2016 supprot
-- Revit 2017 supprot
-- Revit 2018 supprot
-- Revit 2019 supprot
-- Revit 2020 supprot
-- Revit 2021 supprot
-- Revit 2022 supprot
-- Revit 2023 supprot
-- Revit 2024 supprot
-- Revit 2025 supprot
+- Revit 2016 support
+- Revit 2017 support
+- Revit 2018 support
+- Revit 2019 support
+- Revit 2020 support
+- Revit 2021 support
+- Revit 2022 support
+- Revit 2023 support
+- Revit 2024 support
+- Revit 2025 support
