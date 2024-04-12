@@ -31,14 +31,15 @@ jobs:
         with:
           dotnet-version: 8.0.x
       
-      # Current date: https://stackoverflow.com/questions/60942067/get-current-date-and-time-in-github-workflows
-      - name: Current date
-        run: echo "date=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
-      
       # Pack project: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-pack
       - name: Pack
         run: dotnet pack -c ${{ env.configuration }} -o ${{ env.output }}
-      
+
+      # Fetch version
+      - name: Fetch version
+        id: get-version
+        run: echo "package-version=$(cat "${{ env.output }}/package-version.txt")" >> $GITHUB_OUTPUT
+       
       # Upload the nuget package: https://github.com/marketplace/actions/upload-a-build-artifact
       - name: Upload
         uses: actions/upload-artifact@v4
@@ -56,7 +57,7 @@ jobs:
       - name: Publish github
         if: github.ref_name == env.default_branch
         run: dotnet nuget push ${{ env.output }}/**.nupkg -s https://nuget.pkg.github.com/${{ github.REPOSITORY_OWNER }}/index.json -k ${{ github.TOKEN }} --skip-duplicate
-            
+      
       # Publish release: https://github.com/softprops/action-gh-release
       - name: Publish Release
         if: github.ref_name == env.default_branch
@@ -64,10 +65,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.TOKEN }}
         with:
-          tag_name: v${{ env.date }}
-          name: v${{ env.date }}
-          body_path: README.md
-          draft: false
+          tag_name: v${{ steps.get-version.outputs.package-version }}
+          name: v${{ steps.get-version.outputs.package-version }}
+          body: v${{ steps.get-version.outputs.package-version }}
+          draft: true
           prerelease: false
           files: |
             ${{ env.output }}/*.nupkg

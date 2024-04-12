@@ -22,4 +22,8 @@
         <Content Include="Autodesk.Revit.Sdk.Refs.targets" Pack="true" PackagePath="build/" Link="%(FileName)$(FileExt)" />
         <Content Include="targets/Autodesk.Revit.Sdk.Refs.*.targets" Pack="true" PackagePath="build/" Link="targets/%(FileName)$(FileExt)" />
     </ItemGroup>
+    
+    <Target Name="Version" AfterTargets="Pack">
+        <WriteLinesToFile File="$(PackageOutputPath)\package-version.txt" Lines="$(PackageVersion)"/>
+    </Target>
 </Project>
