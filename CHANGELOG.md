@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Revit 2025 support
 - Define constants `<RevitVersion>` and `<RevitVersion>_OR_GREATER`
-- Revit paths properies `RevitPath` and `RevitExePath` and `RevitAddinsPath` and `RevitAddinsUserPath` and 'RevitApplicationsPath'
+- Revit paths properies `RevitPath` and `RevitExePath` and `RevitAddinsPath` and `RevitAddinsUserPath` and `RevitApplicationsPath`
 - This `CHANGELOG.md` file
 
 ### Changed
