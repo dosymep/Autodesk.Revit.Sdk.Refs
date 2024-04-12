@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 		LICENSE.md = LICENSE.md
 		README.md = README.md
+		CHANGELOG.md = CHANGELOG.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autodesk.Revit.Sdk.Refs.2016", "src\Autodesk.Revit.Sdk.Refs.2016\Autodesk.Revit.Sdk.Refs.2016.csproj", "{4D6F8010-D208-4A46-A889-E4B969671389}"
