@@ -1,0 +1,9 @@
+<Project>
+    <PropertyGroup Condition="$(Configuration.EndsWith('25'))">
+        <RevitVersion>2025</RevitVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(RevitVersion)' == '2025'">
+        <TargetFramework>net8.0-windows</TargetFramework>
+    </PropertyGroup>
+</Project>

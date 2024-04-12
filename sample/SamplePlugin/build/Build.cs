@@ -26,19 +26,19 @@ class Build : NukeBuild, IHazSolution {
     /// Output directory.
     /// </summary>
     AbsolutePath Output => RootDirectory / "bin";
-    
+
     /// <summary>
     /// Min Revit version.
     /// </summary>
     [Parameter("Min Revit version.")]
-    readonly RevitVersion MinVersion = RevitVersion.Rv2020;
+    readonly RevitVersion MinVersion = RevitVersion.Rv2016;
 
     /// <summary>
     /// Max Revit version.
     /// </summary>
     [Parameter("Max Revit version.")]
-    readonly RevitVersion MaxVersion = RevitVersion.Rv2024;
-    
+    readonly RevitVersion MaxVersion = RevitVersion.Rv2025;
+
     [Parameter("Build Revit versions.")] readonly RevitVersion[] RevitVersions = new RevitVersion[0];
 
     IEnumerable<RevitVersion> BuildRevitVersions;
@@ -61,7 +61,7 @@ class Build : NukeBuild, IHazSolution {
                 .Where(item => item != RootDirectory / "build" / "obj")
                 .DeleteDirectories();
         });
-    
+
     Target Restore => _ => _
         .DependsOn(Clean)
         .Executes(() => {
@@ -79,7 +79,8 @@ class Build : NukeBuild, IHazSolution {
                 .EnableForce()
                 .DisableNoRestore()
                 .SetConfiguration(Configuration)
-                .SetProjectFile(((IHazSolution) this).Solution)
+                .SetProjectFile(((IHazSolution) this)
+                    .Solution.GetProject("SamplePlugin"))
                 .When(IsServerBuild, _ => _
                     .EnableContinuousIntegrationBuild())
                 .CombineWith(BuildRevitVersions, (settings, version) => {

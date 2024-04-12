@@ -5,12 +5,19 @@ permissions:
   contents: write
 
 on:
+  # on pull_request to master
+  pull_request:
+    types: [ opened, synchronize ]
+    branches: [ main, master ]
+  
+  # manual
   workflow_dispatch:
 
 env:
   output: bin
   project: Autodesk.Revit.Sdk.Refs
   configuration: Release
+  default_branch: ${{ github.event.repository.default_branch }}
 
 jobs:
   build:
@@ -18,11 +25,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      # Install the .NET Core workload
+      # Install the .NET 8.0 workload
       - name: Install .NET Core
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 7.0.x
+          dotnet-version: 8.0.x
       
       # Current date: https://stackoverflow.com/questions/60942067/get-current-date-and-time-in-github-workflows
       - name: Current date
@@ -34,7 +41,7 @@ jobs:
       
       # Upload the nuget package: https://github.com/marketplace/actions/upload-a-build-artifact
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           if-no-files-found: error
           name: ${{ env.project }}
@@ -42,18 +49,17 @@ jobs:
       
       # Publish the nuget package: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push
       - name: Publish nuget
-        env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-        run: dotnet nuget push ${{ env.output }}/**.nupkg -s https://api.nuget.org/v3/index.json -k $NUGET_API_KEY --skip-duplicate
+        if: github.ref_name == env.default_branch
+        run: dotnet nuget push ${{ env.output }}/**.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate
 
       # Publish the nuget package: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push
       - name: Publish github
-        env:
-          NUGET_API_KEY: ${{ github.TOKEN }}
-        run: dotnet nuget push ${{ env.output }}/**.nupkg -s https://nuget.pkg.github.com/${{ github.REPOSITORY_OWNER }}/index.json -k $NUGET_API_KEY --skip-duplicate
+        if: github.ref_name == env.default_branch
+        run: dotnet nuget push ${{ env.output }}/**.nupkg -s https://nuget.pkg.github.com/${{ github.REPOSITORY_OWNER }}/index.json -k  ${{ github.TOKEN }} --skip-duplicate
             
       # Publish release: https://github.com/softprops/action-gh-release
       - name: Publish Release
+        if: github.ref_name == env.default_branch
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ github.TOKEN }}

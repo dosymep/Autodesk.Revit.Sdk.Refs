@@ -1,5 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
-    <Import Project="RevitVersions\Autodesk.Revit.Sdk.Refs.*.props" />
+<Project Sdk="Microsoft.NET.Sdk">
     
     <PropertyGroup>
         <UseWpf>true</UseWpf>
@@ -9,9 +8,10 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <RevitVersion>2024</RevitVersion>
-        <TargetFramework>net48</TargetFramework>
-        <Configurations>Debug;Release;D2016;D2017;D2018;D2019;D2020;D2021;D2022;D2023;D2024</Configurations>
+        <RevitVersion Condition="'$(RevitVersion)' == ''">2025</RevitVersion>
+        <TargetFramework Condition="'$(RevitVersion)' &lt;= '2024'">net48</TargetFramework>
+        <TargetFramework Condition="'$(TargetFramework)' == ''">net8.0-windows</TargetFramework>
+        <Configurations>Debug;Release;D2016;D2017;D2018;D2019;D2020;D2021;D2022;D2023;D2024;D2025</Configurations>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration.StartsWith(`D`))'">
@@ -29,6 +29,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Autodesk.Revit.Sdk.Refs" Version="*"/>
         <PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitVersion)" Version="*"/>
     </ItemGroup>
 
@@ -39,8 +40,6 @@
         <Compile Update="RevitCommand.Greater.cs">
             <DependentUpon>RevitCommand.cs</DependentUpon>
         </Compile>
-        <Compile Update="RevitCommand.Less.cs">
-            <DependentUpon>RevitCommand.cs</DependentUpon>
-        </Compile>
     </ItemGroup>
+
 </Project>

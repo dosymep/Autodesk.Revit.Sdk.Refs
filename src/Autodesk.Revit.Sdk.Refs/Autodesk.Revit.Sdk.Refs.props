@@ -1,3 +1,16 @@
 <Project>
     <Import Project="Autodesk.Revit.Sdk.Refs.*.props"/>
+    
+    <PropertyGroup>
+        <RevitPath>$(ProgramFiles)\Autodesk\Revit $(RevitVersion)</RevitPath>
+        <RevitExePath>$(ProgramFiles)\Autodesk\Revit $(RevitVersion)\Revit.exe</RevitExePath>
+        <RevitAddinsPath>$(ProgramData)\Autodesk\Revit\Addins\$(RevitVersion)</RevitAddinsPath>
+        <RevitAddinsUserPath>$(AppData)\Autodesk\Revit\Addins\$(RevitVersion)</RevitAddinsUserPath>
+        <RevitApplicationsPath>$(ProgramData)\Autodesk\ApplicationPlugins</RevitApplicationsPath>
+    </PropertyGroup>
+    
+    <PropertyGroup Condition="$(RevitVersion) == 2016">
+        <RevitPath>$(ProgramFiles)\Autodesk\Revit MEP $(RevitVersion)</RevitPath>
+        <RevitExePath>$(ProgramFiles)\Autodesk\Revit MEP $(RevitVersion)\Revit.exe</RevitExePath>
+    </PropertyGroup>
 </Project>
