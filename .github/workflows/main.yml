@@ -33,7 +33,7 @@ jobs:
       
       # Current date: https://stackoverflow.com/questions/60942067/get-current-date-and-time-in-github-workflows
       - name: Current date
-        run: echo "date=$(date +'%Y%m%d')" >> $GITHUB_ENV
+        run: echo "date=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
       
       # Pack project: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-pack
       - name: Pack
@@ -55,7 +55,7 @@ jobs:
       # Publish the nuget package: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push
       - name: Publish github
         if: github.ref_name == env.default_branch
-        run: dotnet nuget push ${{ env.output }}/**.nupkg -s https://nuget.pkg.github.com/${{ github.REPOSITORY_OWNER }}/index.json -k  ${{ github.TOKEN }} --skip-duplicate
+        run: dotnet nuget push ${{ env.output }}/**.nupkg -s https://nuget.pkg.github.com/${{ github.REPOSITORY_OWNER }}/index.json -k ${{ github.TOKEN }} --skip-duplicate
             
       # Publish release: https://github.com/softprops/action-gh-release
       - name: Publish Release
