@@ -2,7 +2,7 @@
 
 [![JetBrains Rider](https://img.shields.io/badge/JetBrains-Rider-blue.svg)](https://www.jetbrains.com/rider)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.md)
-[![Revit 2016-2024](https://img.shields.io/badge/Revit-2016--2024-blue.svg)](https://www.autodesk.com/products/revit/overview)
+[![Revit 2016-2025](https://img.shields.io/badge/Revit-2016--2025-blue.svg)](https://www.autodesk.com/products/revit/overview)
 
 Revit SDK refs assemblies.  
 Only metadata from assemblies by [Refasmer](https://github.com/JetBrains/Refasmer).
@@ -76,8 +76,8 @@ REVIT<RevitVersion>_OR_GREATER
 Copy libs
 
 ```csharp
-string version = "2025";
-string oldVersion = "2024";
+string version = "2026";
+string oldVersion = "2025";
 
 string target = @"lib";
 string source = @"lib\" + oldVersion;
