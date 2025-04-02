@@ -6,10 +6,10 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Version>1.1.1</Version>
-        <FileVersion>1.1.1</FileVersion>
-        <PackageVersion>1.1.1</PackageVersion>
-        <AssemblyVersion>1.1.1</AssemblyVersion>
+        <Version>1.2.0</Version>
+        <FileVersion>1.2.0</FileVersion>
+        <PackageVersion>1.2.0</PackageVersion>
+        <AssemblyVersion>1.2.0</AssemblyVersion>
     </PropertyGroup>
 
     <PropertyGroup>
