@@ -2,7 +2,7 @@
 
 [![JetBrains Rider](https://img.shields.io/badge/JetBrains-Rider-blue.svg)](https://www.jetbrains.com/rider)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://en.wikipedia.org/wiki/MIT_License)
-[![Revit 2016-2025](https://img.shields.io/badge/Revit-2016--2025-blue.svg)](https://www.autodesk.com/products/revit/overview)
+[![Revit 2016-2026](https://img.shields.io/badge/Revit-2016--2026-blue.svg)](https://www.autodesk.com/products/revit/overview)
 
 Revit SDK refs assemblies.  
 Only metadata from assemblies by [Refasmer](https://github.com/JetBrains/Refasmer).
@@ -15,7 +15,7 @@ Add project configurations with revit versions in name
 <PropertyGroup>
     <RevitVersion Condition="'$(RevitVersion)' == ''">2016</RevitVersion> <!-- set default revit version -->
     <TargetFramework Condition="'$(TargetFramework)' == ''">net45</TargetFramework> <!-- set default target framework -->
-    <Configurations>Debug;Release;D2016;D2017;D2018;D2019;D2020;D2021;D2022;D2023;D2024;D2025</Configurations>
+    <Configurations>Debug;Release;D2016;D2017;D2018;D2019;D2020;D2021;D2022;D2023;D2024;D2025;D2026</Configurations>
 </PropertyGroup>
 ```
 
