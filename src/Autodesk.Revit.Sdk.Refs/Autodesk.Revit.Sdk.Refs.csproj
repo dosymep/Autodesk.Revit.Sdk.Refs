@@ -13,7 +13,7 @@
         <Content Include="Sdk/**/*.props" PackagePath="Sdk/"/>
         <Content Include="Sdk/**/*.targets" PackagePath="Sdk/"/>
 
-        <None Include="../../.github/workflows/*.yml" LinkBase="ci"/>
+        <None Include="../../.github/**/*.yml" LinkBase=".github"/>
 
         <Content Include="../../assets/Revit.png" Pack="true" PackagePath="Revit.png"/>
         <Content Include="../../assets/README.md" Pack="true" PackagePath="README.md"/>
