@@ -1,0 +1,52 @@
+﻿<Solution>
+    <Configurations>
+        <Platform Name="x64"/>
+    </Configurations>
+    <Folder Name="/Solution Items/">
+        <File Path=".editorconfig"/>
+        <File Path=".gitattributes"/>
+        <File Path=".gitignore"/>
+        <File Path="CHANGELOG.md"/>
+        <File Path="LICENSE.md"/>
+        <File Path="README.md"/>
+    </Folder>
+    <Project Path="src/Autodesk.Revit.Sdk.Refs.2016/Autodesk.Revit.Sdk.Refs.2016.csproj">
+        <Platform Project="x64"/>
+    </Project>
+    <Project Path="src/Autodesk.Revit.Sdk.Refs.2017/Autodesk.Revit.Sdk.Refs.2017.csproj">
+        <Platform Project="x64"/>
+    </Project>
+    <Project Path="src/Autodesk.Revit.Sdk.Refs.2018/Autodesk.Revit.Sdk.Refs.2018.csproj">
+        <Platform Project="x64"/>
+    </Project>
+    <Project Path="src/Autodesk.Revit.Sdk.Refs.2019/Autodesk.Revit.Sdk.Refs.2019.csproj">
+        <Platform Project="x64"/>
+    </Project>
+    <Project Path="src/Autodesk.Revit.Sdk.Refs.2020/Autodesk.Revit.Sdk.Refs.2020.csproj">
+        <Platform Project="x64"/>
+    </Project>
+    <Project Path="src/Autodesk.Revit.Sdk.Refs.2021/Autodesk.Revit.Sdk.Refs.2021.csproj">
+        <Platform Project="x64"/>
+    </Project>
+    <Project Path="src/Autodesk.Revit.Sdk.Refs.2022/Autodesk.Revit.Sdk.Refs.2022.csproj">
+        <Platform Project="x64"/>
+    </Project>
+    <Project Path="src/Autodesk.Revit.Sdk.Refs.2023/Autodesk.Revit.Sdk.Refs.2023.csproj">
+        <Platform Project="x64"/>
+    </Project>
+    <Project Path="src/Autodesk.Revit.Sdk.Refs.2024/Autodesk.Revit.Sdk.Refs.2024.csproj">
+        <Platform Project="x64"/>
+    </Project>
+    <Project Path="src/Autodesk.Revit.Sdk.Refs.2025/Autodesk.Revit.Sdk.Refs.2025.csproj">
+        <Platform Project="x64"/>
+    </Project>
+    <Project Path="src/Autodesk.Revit.Sdk.Refs.2026/Autodesk.Revit.Sdk.Refs.2026.csproj">
+        <Platform Project="x64"/>
+    </Project>
+    <Project Path="src/Autodesk.Revit.Sdk.Refs.2027/Autodesk.Revit.Sdk.Refs.2027.csproj">
+        <Platform Project="x64"/>
+    </Project>
+    <Project Path="src/Autodesk.Revit.Sdk.Refs/Autodesk.Revit.Sdk.Refs.csproj">
+        <Platform Project="x64"/>
+    </Project>
+</Solution>
