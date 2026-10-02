@@ -2,46 +2,65 @@
 
 [![JetBrains Rider](https://img.shields.io/badge/JetBrains-Rider-blue.svg)](https://www.jetbrains.com/rider)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.md)
-[![Revit 2016-2026](https://img.shields.io/badge/Revit-2016--2026-blue.svg)](https://www.autodesk.com/products/revit/overview)
+[![Revit 2016-2027](https://img.shields.io/badge/Revit-2016--2027-blue.svg)](https://www.autodesk.com/products/revit/overview)
 
 Revit SDK refs assemblies.  
 Only metadata from assemblies by [Refasmer](https://github.com/JetBrains/Refasmer).
 
 ## Usage
 
-Add project configurations with revit versions in name
+You can use the custom **MSBuild SDK** `Autodesk.Revit.Sdk.Refs`. Just reference it in your project's `<Project>` tag:
 
 ```xml
-<PropertyGroup>
-    <RevitVersion Condition="'$(RevitVersion)' == ''">2016</RevitVersion> <!-- set default revit version -->
-    <TargetFramework Condition="'$(TargetFramework)' == ''">net45</TargetFramework> <!-- set default target framework -->
-    <Configurations>Debug;Release;D2016;D2017;D2018;D2019;D2020;D2021;D2022;D2023;D2024;D2025;D2026</Configurations>
-</PropertyGroup>
+<Project Sdk="Autodesk.Revit.Sdk.Refs/2.0.0">
+
+    <PropertyGroup>
+        <UseWpf>true</UseWpf>
+        <Platforms>x64</Platforms>
+        <OutputType>Library</OutputType>
+        <RootNamespace>SamplePlugin</RootNamespace>
+
+        <!-- Optional: set to true to print build info during compilations -->
+        <ShowBuildInfo>true</ShowBuildInfo>
+        
+        <!-- Define configurations you want to use -->
+        <Configurations>Debug;Release;D2016;D2017;D2018;D2019;D2020;D2021;D2022;D2023;D2024;D2025;D2026;D2027</Configurations>
+    </PropertyGroup>
+
+</Project>
 ```
 
-Add package reference
+The MSBuild SDK automatically handles:
+- Correct target framework selection based on `RevitVersion` (e.g. `net48` for versions prior to 2025, `net8.0-windows` for 2025-2026, and `net10.0-windows` for 2027).
+- Implicit references to `Autodesk.Revit.Sdk.Refs` and the specific versioned package `Autodesk.Revit.Sdk.Refs.$(RevitVersion)`.
+- Setting properties like `RevitPath`, `RevitExePath`, `RevitAddinsPath`, `RevitAddinsUserPath`, and `RevitApplicationsPath`.
+- Generating Revit version compilation constants automatically.
 
-```xml
-<ItemGroup>
-    <!-- package reference with revit dlls -->
-    <PackageReference Include="Autodesk.Revit.Sdk.Refs" Version="*" />
-    <PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitVersion)" Version="*" />
-</ItemGroup>
+### How to Build & Run the Sample
+
+The sample project under `sample/SamplePlugin` relies on the locally built NuGet packages. To compile and run the sample, you first need to pack the SDK and the version packages into the `artifacts` directory so that NuGet can restore them locally.
+
+#### 1. Pack the Solution
+
+Run `dotnet pack` on the solution, specifying the output path as `artifacts`:
+
+```bash
+dotnet pack Autodesk.Revit.Sdk.Refs.slnx --output artifacts
 ```
 
-### Build Revit Project
+This will generate the `.nupkg` files (e.g. `Autodesk.Revit.Sdk.Refs.2.0.0.nupkg` and all versioned reference packages) in the `artifacts/` folder. The sample's `nuget.config` is configured to read packages from this directory as a local source.
 
-See sample project in this [folder](sample/SamplePlugin).  
-You should compile Debug or Release configuration.  
-Other configurations needs to help write code with constants.
+#### 2. Build Revit Project (Sample)
 
-#### dotnet cli
+Now you can go to the sample folder and compile the sample project for your desired configuration/Revit version:
 
+##### dotnet cli
+
+```bash
+dotnet build sample/SamplePlugin/SamplePlugin/SamplePlugin.csproj -c <Configuration> -p:RevitVersion=<RevitVersion>
 ```
-dotnet build -c <Configuration> -p:RevitVersion=<RevitVersion>
-```
 
-#### nuke build
+##### nuke build
 
 ```csharp
 DotNetBuild(s => s
@@ -63,12 +82,12 @@ REVIT<RevitVersion>_OR_GREATER
 ### Usage defined constants
 
 ```csharp
-#if REVIT<RevitVersion>
-    // This code will be available for the specified version
+#if REVIT2024
+    // This code will be available for Revit 2024
 #endif
 
-#if REVIT<RevitVersion>_OR_GREATER
-     // This code will be available for all versions greater than specified
+#if REVIT2025_OR_GREATER
+     // This code will be available for Revit 2025 and newer
 #endif
 ```
 
@@ -78,8 +97,8 @@ Copy libs
 
 ```csharp
 
-string version = "2026";
-string oldVersion = "2025";
+string version = "2027";
+string oldVersion = "2026";
 
 string target = "lib";
 string source = Path.Combine(target, oldVersion);
@@ -110,8 +129,8 @@ foreach (string enumerateFile in Directory.EnumerateFiles(source))
 import os
 import shutil
 
-version = "2026"
-old_version = "2025"
+version = "2027"
+old_version = "2026"
 
 target = "lib"
 source = os.path.join(target, old_version)
