@@ -4,6 +4,7 @@
     <Import Project="build/Configurations.targets"/>
     <Import Project="build/DefineConstants.targets"/>
     <Import Project="build/TargetFramework.targets"/>
+    <Import Project="build/RevitProperties.targets"/>
 
     <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk"/>
 
