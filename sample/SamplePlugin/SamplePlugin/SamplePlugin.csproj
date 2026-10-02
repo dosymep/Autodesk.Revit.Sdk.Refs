@@ -1,37 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk">
-    
+<Project Sdk="Autodesk.Revit.Sdk.Refs/2.0.0">
+
     <PropertyGroup>
         <UseWpf>true</UseWpf>
         <Platforms>x64</Platforms>
         <OutputType>Library</OutputType>
         <RootNamespace>SamplePlugin</RootNamespace>
-    </PropertyGroup>
 
-    <PropertyGroup>
-        <RevitVersion Condition="'$(RevitVersion)' == ''">2025</RevitVersion>
-        <TargetFramework Condition="'$(RevitVersion)' &lt;= '2024'">net48</TargetFramework>
-        <TargetFramework Condition="'$(TargetFramework)' == ''">net8.0-windows</TargetFramework>
-        <Configurations>Debug;Release;D2016;D2017;D2018;D2019;D2020;D2021;D2022;D2023;D2024;D2025</Configurations>
+        <ShowBuildInfo>true</ShowBuildInfo>
+        <Configurations>Debug;Release;D2016;D2017;D2018;D2019;D2020;D2021;D2022;D2023;D2024;D2025;D2026;D2026.5</Configurations>
     </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration.StartsWith(`D`))'">
-        <Optimization>false</Optimization>
-        <DebugSymbols>true</DebugSymbols>
-        <OutputPath>bin\x64\Debug</OutputPath>
-        <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration.StartsWith(`R`))'">
-        <Optimize>true</Optimize>
-        <DebugSymbols>false</DebugSymbols>
-        <OutputPath>bin\x64\Release</OutputPath>
-        <DefineConstants>$(DefineConstants);RELEASE</DefineConstants>
-    </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Autodesk.Revit.Sdk.Refs" Version="*"/>
-        <PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitVersion)" Version="*"/>
-    </ItemGroup>
 
     <ItemGroup>
         <Compile Update="RevitCommand.Equal.cs">
