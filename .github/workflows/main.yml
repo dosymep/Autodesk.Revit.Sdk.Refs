@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
 
 env:
-  output: bin
+  output: artifacts
   project: Autodesk.Revit.Sdk.Refs
   configuration: Release
   default_branch: ${{ github.event.repository.default_branch }}
@@ -23,13 +23,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       
       # Install the .NET 8.0 workload
       - name: Install .NET Core
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v6
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: 10.0.x
       
       # Pack project: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-pack
       - name: Pack
@@ -42,7 +42,7 @@ jobs:
       
       # Upload the nuget package: https://github.com/marketplace/actions/upload-a-build-artifact
       - name: Upload
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           if-no-files-found: error
           name: ${{ env.project }}
@@ -61,7 +61,7 @@ jobs:
       # Publish release: https://github.com/softprops/action-gh-release
       - name: Publish Release
         if: github.ref_name == env.default_branch
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v3
         env:
           GITHUB_TOKEN: ${{ github.TOKEN }}
         with:
