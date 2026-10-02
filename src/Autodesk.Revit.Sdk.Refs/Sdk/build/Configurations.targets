@@ -1,9 +1,9 @@
 ﻿<Project>
-    
+
     <PropertyGroup>
         <RevitMajorVersion>$([System.String]::Copy('$(RevitVersion)').Split('.')[0])</RevitMajorVersion>
     </PropertyGroup>
-    
+
     <PropertyGroup Condition="'$(Configuration.StartsWith(`D`))'">
         <Optimization>false</Optimization>
         <DebugSymbols>true</DebugSymbols>

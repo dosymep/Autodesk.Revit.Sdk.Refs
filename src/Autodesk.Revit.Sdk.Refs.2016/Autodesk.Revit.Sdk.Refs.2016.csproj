@@ -3,7 +3,7 @@
         <RevitVersion>2016</RevitVersion>
         <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
-    
+
     <ItemGroup>
         <Content Include="../../libs/$(RevitVersion)/net48/**" Pack="true" PackagePath="ref/net48/" Link="refs/net48/%(FileName)%(FileExt)"/>
     </ItemGroup>

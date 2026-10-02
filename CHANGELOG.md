@@ -11,14 +11,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Revit 2026 support
 
-
 ## [v2024.04.12] - 2024-04-12
 
 ### Add
 
 - Revit 2025 support
 - Define constants `REVIT<RevitVersion>` and `REVIT<RevitVersion>_OR_GREATER`
-- Revit paths properies `RevitPath` and `RevitExePath` and `RevitAddinsPath` and `RevitAddinsUserPath` and `RevitApplicationsPath`
+- Revit paths properies `RevitPath` and `RevitExePath` and `RevitAddinsPath` and `RevitAddinsUserPath` and
+  `RevitApplicationsPath`
 - This `CHANGELOG.md` file
 
 ### Changed

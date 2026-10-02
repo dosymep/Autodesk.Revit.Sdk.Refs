@@ -10,9 +10,9 @@
                  PackagePath="ref/net8.0-windows7.0/"
                  Link="refs/net8.0-windows/%(FileName)%(FileExt)"/>
 
-        <Content Include="../../libs/$(RevitVersion)/net10.0-windows/**" 
-                 Pack="true" 
-                 PackagePath="ref/net10.0-windows7.0/" 
+        <Content Include="../../libs/$(RevitVersion)/net10.0-windows/**"
+                 Pack="true"
+                 PackagePath="ref/net10.0-windows7.0/"
                  Link="refs/net10.0-windows/%(FileName)%(FileExt)"/>
     </ItemGroup>
 </Project>

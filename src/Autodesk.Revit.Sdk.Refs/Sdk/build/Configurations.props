@@ -17,5 +17,5 @@
         <RevitVersion Condition="$(Configuration) == 'Debug'">2027</RevitVersion>
         <RevitVersion Condition="$(Configuration) == 'Release'">2027</RevitVersion>
     </PropertyGroup>
-    
+
 </Project>

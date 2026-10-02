@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     </PropertyGroup>
-    
+
     <PropertyGroup>
         <ShowBuildInfo>false</ShowBuildInfo>
     </PropertyGroup>

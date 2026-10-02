@@ -39,7 +39,7 @@ jobs:
       - name: Fetch version
         id: get-version
         run: echo "package-version=$(cat "${{ env.output }}/package-version.txt")" >> $GITHUB_OUTPUT
-       
+      
       # Upload the nuget package: https://github.com/marketplace/actions/upload-a-build-artifact
       - name: Upload
         uses: actions/upload-artifact@v4

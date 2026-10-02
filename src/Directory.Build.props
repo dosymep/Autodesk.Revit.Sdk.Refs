@@ -51,7 +51,7 @@
         <Title>Autodesk.Revit.Sdk.Refs.$(RevitVersion)</Title>
         <PackageId>Autodesk.Revit.Sdk.Refs.$(RevitVersion)</PackageId>
     </PropertyGroup>
-    
+
     <ItemGroup Condition="'$(RevitVersion)' != ''">
         <Content Include="../../assets/README.md" Pack="true" PackagePath="README.md"/>
         <Content Include="../../assets/LICENSE.md" Pack="true" PackagePath="LICENSE.md"/>

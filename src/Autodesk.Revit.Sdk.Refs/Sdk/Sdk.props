@@ -2,7 +2,7 @@
 
     <Import Project="build/Common.props"/>
     <Import Project="build/Configurations.props"/>
-    
-    <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
-    
+
+    <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk"/>
+
 </Project>

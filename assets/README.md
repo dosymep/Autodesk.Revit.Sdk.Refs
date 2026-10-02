@@ -31,7 +31,8 @@ Add package reference
 
 ### Build Revit Project
 
-See sample project in this [folder](https://github.com/dosymep/Autodesk.Revit.Sdk.Refs/tree/master/sample/SamplePlugin).  
+See sample project in
+this [folder](https://github.com/dosymep/Autodesk.Revit.Sdk.Refs/tree/master/sample/SamplePlugin).  
 You should compile the Debug configuration.  
 Other configurations needs to help write code with constants.
 
@@ -61,6 +62,7 @@ REVIT<RevitVersion>_OR_GREATER
 ```
 
 ### Usage defined constants
+
 ```csharp
 #if REVIT<RevitVersion>
     // This code will be available for the specified version
