@@ -8,27 +8,28 @@ using Autodesk.Revit.UI;
 
 using SamplePlugin.Views;
 
-namespace SamplePlugin {
-    [Transaction(TransactionMode.Manual)]
-    [Regeneration(RegenerationOption.Manual)]
-    public sealed partial class RevitCommand : IExternalCommand {
-        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements) {
-            var window = new MainWindow();
-            window.Greeting = $"Hello Revit {RevitVersion}!" +
-                              $"{Environment.NewLine}" +
-                              $"OrGreater: {GetGreaterVersions()}";
-            
-            window.ShowDialog();
-            return Result.Succeeded;
-        }
+namespace SamplePlugin;
 
-        private string GetGreaterVersions() {
-            var values = typeof(RevitCommand)
-                .GetProperties(BindingFlags.Instance | BindingFlags.Public)
-                .Where(item => item.Name.StartsWith("RevitVersionOrGreater"))
-                .Select(item => item.GetValue(this));
+[Transaction(TransactionMode.Manual)]
+[Regeneration(RegenerationOption.Manual)]
+public sealed partial class RevitCommand : IExternalCommand {
+    public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements) {
+        MainWindow window = new() {
+            Greeting = $"Hello Revit {RevitVersion}!" +
+                       $"{Environment.NewLine}" +
+                       $"OrGreater: {GetGreaterVersions()}"
+        };
 
-            return string.Join(";", values);
-        }
+        window.ShowDialog();
+        return Result.Succeeded;
+    }
+
+    private string GetGreaterVersions() {
+        IEnumerable<object?> values = typeof(RevitCommand)
+            .GetProperties(BindingFlags.Instance | BindingFlags.Public)
+            .Where(item => item.Name.StartsWith("RevitVersionOrGreater"))
+            .Select(item => item.GetValue(this));
+
+        return string.Join(";", values);
     }
 }

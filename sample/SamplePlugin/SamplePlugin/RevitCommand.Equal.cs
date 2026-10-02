@@ -1,7 +1,8 @@
 ﻿using System;
 
-namespace SamplePlugin {
-    public partial class RevitCommand {
+namespace SamplePlugin;
+
+public partial class RevitCommand {
 #if REVIT2016
         public int RevitVersion => 2016;
 #elif REVIT2017
@@ -23,7 +24,6 @@ namespace SamplePlugin {
 #elif REVIT2025
         public int RevitVersion => 2025;
 #else
-        public int RevitVersion => throw new NotImplementedException();
+    public int RevitVersion => throw new NotImplementedException();
 #endif
-    }
 }

@@ -1,22 +1,22 @@
 ﻿using System.Windows;
 
-namespace SamplePlugin.Views {
-    public partial class MainWindow {
-        public MainWindow() {
-            InitializeComponent();
-        }
+namespace SamplePlugin.Views;
 
-        public string Greeting {
-            get => _textBox.Text;
-            set => _textBox.Text = value;
-        }
+public partial class MainWindow {
+    public MainWindow() {
+        InitializeComponent();
+    }
 
-        private void ButtonOk_OnClick(object sender, RoutedEventArgs e) {
-            DialogResult = true;
-        }
+    public string Greeting {
+        get => _textBox.Text;
+        set => _textBox.Text = value;
+    }
 
-        private void ButtonCancel_OnClick(object sender, RoutedEventArgs e) {
-            DialogResult = false;
-        }
+    private void ButtonOk_OnClick(object sender, RoutedEventArgs e) {
+        DialogResult = true;
+    }
+
+    private void ButtonCancel_OnClick(object sender, RoutedEventArgs e) {
+        DialogResult = false;
     }
 }
