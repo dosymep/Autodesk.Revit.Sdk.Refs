@@ -1,0 +1,14 @@
+﻿<Project>
+    
+    <Import Project="build/BuildInfo.targets"/>
+    <Import Project="build/Configurations.targets"/>
+    <Import Project="build/DefineConstants.targets"/>
+    <Import Project="build/TargetFramework.targets"/>
+    
+    <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk"/>
+
+    <ItemGroup>
+        <PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitMajorVersion)" Version="*"/>
+    </ItemGroup>
+    
+</Project>

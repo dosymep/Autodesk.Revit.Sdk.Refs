@@ -1,0 +1,21 @@
+<Project>
+
+    <PropertyGroup>
+        <RevitVersion Condition="$(Configuration.EndsWith('16'))">2016</RevitVersion>
+        <RevitVersion Condition="$(Configuration.EndsWith('17'))">2017</RevitVersion>
+        <RevitVersion Condition="$(Configuration.EndsWith('18'))">2018</RevitVersion>
+        <RevitVersion Condition="$(Configuration.EndsWith('19'))">2019</RevitVersion>
+        <RevitVersion Condition="$(Configuration.EndsWith('20'))">2020</RevitVersion>
+        <RevitVersion Condition="$(Configuration.EndsWith('21'))">2021</RevitVersion>
+        <RevitVersion Condition="$(Configuration.EndsWith('22'))">2022</RevitVersion>
+        <RevitVersion Condition="$(Configuration.EndsWith('23'))">2023</RevitVersion>
+        <RevitVersion Condition="$(Configuration.EndsWith('24'))">2024</RevitVersion>
+        <RevitVersion Condition="$(Configuration.EndsWith('25'))">2025</RevitVersion>
+        <RevitVersion Condition="$(Configuration.EndsWith('26'))">2026</RevitVersion>
+        <RevitVersion Condition="$(Configuration.EndsWith('26.5'))">2026.5</RevitVersion>
+        <RevitVersion Condition="$(Configuration.EndsWith('27'))">2027</RevitVersion>
+        <RevitVersion Condition="$(Configuration) == 'Debug'">2027</RevitVersion>
+        <RevitVersion Condition="$(Configuration) == 'Release'">2027</RevitVersion>
+    </PropertyGroup>
+    
+</Project>
