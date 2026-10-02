@@ -132,15 +132,15 @@ for enumerate_file in os.listdir(source):
 Install [Refasmer](https://github.com/JetBrains/Refasmer) and run on refs folder:
 
 ```
-refasmer -m -i -w AdWindows.dll
-refasmer -r -i -w PackageContentsParser.dll
-refasmer -r -i -w RevitAddInUtility.dll
-refasmer -r -i -w RevitAPI.dll
-refasmer -r -i -w RevitAPIBrowserUtils.dll
-refasmer -r -i -w RevitAPIIFC.dll
-refasmer -r -i -w RevitAPIMacros.dll
-refasmer -r -i -w RevitAPIUI.dll
-refasmer -r -i -w RevitAPIUIMacros.dll
-refasmer -r -i -w RevitNET.dll
-refasmer -m -i -w UIFramework.dll
+refasmer -m -i -w --omit-non-api-members=true AdWindows.dll
+refasmer -r -i -w --omit-non-api-members=true PackageContentsParser.dll
+refasmer -r -i -w --omit-non-api-members=true RevitAddInUtility.dll
+refasmer -r -i -w --omit-non-api-members=true RevitAPI.dll
+refasmer -r -i -w --omit-non-api-members=true RevitAPIBrowserUtils.dll
+refasmer -r -i -w --omit-non-api-members=true RevitAPIIFC.dll
+refasmer -r -i -w --omit-non-api-members=true RevitAPIMacros.dll
+refasmer -r -i -w --omit-non-api-members=true RevitAPIUI.dll
+refasmer -r -i -w --omit-non-api-members=true RevitAPIUIMacros.dll
+refasmer -r -i -w --omit-non-api-members=true RevitNET.dll
+refasmer -m -i -w --omit-non-api-members=true UIFramework.dll
 ```
