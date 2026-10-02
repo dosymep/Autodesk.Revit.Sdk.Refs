@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <RevitVersion>2027</RevitVersion>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="../../libs/$(RevitVersion)/net10.0-windows/**" Pack="true" PackagePath="ref/net10.0-windows7.0/" Link="refs/net10.0-windows/%(FileName)%(FileExt)"/>
+    </ItemGroup>
+</Project>

@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autodesk.Revit.Sdk.Refs.202
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autodesk.Revit.Sdk.Refs.2026", "src\Autodesk.Revit.Sdk.Refs.2026\Autodesk.Revit.Sdk.Refs.2026.csproj", "{9B95167C-2DEB-4E28-98AF-17B0485AE569}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autodesk.Revit.Sdk.Refs.2027", "src\Autodesk.Revit.Sdk.Refs.2027\Autodesk.Revit.Sdk.Refs.2027.csproj", "{89D2625A-D86C-4606-93A3-A05D8293931E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -91,6 +93,10 @@ Global
 		{9B95167C-2DEB-4E28-98AF-17B0485AE569}.Debug|x64.Build.0 = Debug|x64
 		{9B95167C-2DEB-4E28-98AF-17B0485AE569}.Release|x64.ActiveCfg = Release|x64
 		{9B95167C-2DEB-4E28-98AF-17B0485AE569}.Release|x64.Build.0 = Release|x64
+		{89D2625A-D86C-4606-93A3-A05D8293931E}.Debug|x64.ActiveCfg = Debug|x64
+		{89D2625A-D86C-4606-93A3-A05D8293931E}.Debug|x64.Build.0 = Debug|x64
+		{89D2625A-D86C-4606-93A3-A05D8293931E}.Release|x64.ActiveCfg = Release|x64
+		{89D2625A-D86C-4606-93A3-A05D8293931E}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
