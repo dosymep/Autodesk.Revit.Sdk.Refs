@@ -9,19 +9,24 @@ Only metadata from assemblies by [Refasmer](https://github.com/JetBrains/Refasme
 
 ## Usage
 
-You can use the custom **MSBuild SDK** `Autodesk.Revit.Sdk.Refs`. Just reference it in your project's `<Project>` tag. 
+You can use the custom **MSBuild SDK** `Autodesk.Revit.Sdk.Refs`. Just reference it in your project's `<Project>` tag.
 
-It is highly recommended to reference the SDK using a wildcard for the minor and patch versions, for example: `Autodesk.Revit.Sdk.Refs/2.*.*`. 
+It is highly recommended to reference the SDK using a wildcard for the minor and patch versions, for example:
+`Autodesk.Revit.Sdk.Refs/2.*.*`.
 
 ### Versioning Policy
 
 We strictly follow SemVer:
+
 - **Minor version** increases (e.g. `2.1.0`) when new Revit reference libraries/versions are added.
 - **Patch version** increases (e.g. `2.0.1`) when minor fixes or internal SDK improvements are released.
-- Using `2.*.*` allows you to automatically receive new Revit versions and bug fixes without manual intervention, while staying safely within major version `2`. 
-- **Major version** increases (e.g. `3.0.0`) only when there are breaking changes in the MSBuild SDK's public contract, which might require manual migration.
+- Using `2.*.*` allows you to automatically receive new Revit versions and bug fixes without manual intervention, while
+  staying safely within major version `2`.
+- **Major version** increases (e.g. `3.0.0`) only when there are breaking changes in the MSBuild SDK's public contract,
+  which might require manual migration.
 
 ```xml
+
 <Project Sdk="Autodesk.Revit.Sdk.Refs/2.*.*">
 
     <PropertyGroup>
@@ -31,7 +36,7 @@ We strictly follow SemVer:
 
         <!-- Optional: set to true to print build info during compilations -->
         <ShowBuildInfo>true</ShowBuildInfo>
-        
+
         <!-- Define configurations you want to use -->
         <Configurations>Debug;Release;D2024;D2025;D2026;В2026.5;D2027</Configurations>
     </PropertyGroup>
@@ -40,34 +45,38 @@ We strictly follow SemVer:
 ```
 
 The MSBuild SDK automatically handles:
-- Correct target framework selection based on `RevitVersion` (e.g. `net48` for versions prior to 2025, `net8.0-windows` for 2025-2026, and `net10.0-windows` for 2027).
+
+- Correct target framework selection based on `RevitVersion` (e.g. `net48` for versions prior to 2025, `net8.0-windows`
+  for 2025-2026, and `net10.0-windows` for 2027).
 
 ### Frameworks & Revit Versions
 
-| Revit Version | Target Framework |
-| ------------- | ---------------- |
-| 2016 - 2024   | `net48`          |
-| 2025          | `net8.0-windows` |
-| 2026          | `net8.0-windows` |
-| 2026.5        | `net10.0-windows`|
-| 2027          | `net10.0-windows`|
+| Revit Version | Target Framework  |
+|---------------|-------------------|
+| 2016 - 2024   | `net48`           |
+| 2025          | `net8.0-windows`  |
+| 2026          | `net8.0-windows`  |
+| 2026.5        | `net10.0-windows` |
+| 2027          | `net10.0-windows` |
 
 ### Automatically Defined Revit Properties
 
-| Property Name | Value / Path | Description |
-| ------------- | ------------ | ----------- |
-| `RevitPath` | `$(ProgramFiles)\Autodesk\Revit $(RevitVersion)` *(or `...Revit MEP $(RevitVersion)` for 2016)* | Path to the Revit installation directory. |
-| `RevitExePath` | `$(RevitPath)\Revit.exe` | Path to the `Revit.exe` executable. |
-| `RevitAddinsPath` | `$(ProgramData)\Autodesk\Revit\Addins\$(RevitVersion)` | Path to the machine-wide (all users) Revit Addins directory. |
-| `RevitAddinsUserPath` | `$(AppData)\Autodesk\Revit\Addins\$(RevitVersion)` | Path to the user-specific (current user) Revit Addins directory. |
-| `RevitApplicationsPath` | `$(ProgramData)\Autodesk\ApplicationPlugins` | Path to Autodesk Application Plugins directory. |
+| Property Name           | Value / Path                                                                                    | Description                                                      |
+|-------------------------|-------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| `RevitPath`             | `$(ProgramFiles)\Autodesk\Revit $(RevitVersion)` *(or `...Revit MEP $(RevitVersion)` for 2016)* | Path to the Revit installation directory.                        |
+| `RevitExePath`          | `$(RevitPath)\Revit.exe`                                                                        | Path to the `Revit.exe` executable.                              |
+| `RevitAddinsPath`       | `$(ProgramData)\Autodesk\Revit\Addins\$(RevitVersion)`                                          | Path to the machine-wide (all users) Revit Addins directory.     |
+| `RevitAddinsUserPath`   | `$(AppData)\Autodesk\Revit\Addins\$(RevitVersion)`                                              | Path to the user-specific (current user) Revit Addins directory. |
+| `RevitApplicationsPath` | `$(ProgramData)\Autodesk\ApplicationPlugins`                                                    | Path to Autodesk Application Plugins directory.                  |
 
-- Implicit references to `Autodesk.Revit.Sdk.Refs` and the specific versioned package `Autodesk.Revit.Sdk.Refs.$(RevitVersion)`.
+- Implicit references to `Autodesk.Revit.Sdk.Refs` and the specific versioned package
+  `Autodesk.Revit.Sdk.Refs.$(RevitVersion)`.
 - Generating Revit version compilation constants automatically.
 
 ## Migration from v1 to v2
 
-In version 1.x, you had to manually specify target frameworks, default properties, and reference two separate NuGet packages in every project:
+In version 1.x, you had to manually specify target frameworks, default properties, and reference two separate NuGet
+packages in every project:
 
 ```xml
 <!-- v1.x Style (Old) -->
@@ -76,8 +85,8 @@ In version 1.x, you had to manually specify target frameworks, default propertie
     <TargetFramework Condition="'$(TargetFramework)' == ''">net48</TargetFramework>
 </PropertyGroup>
 <ItemGroup>
-    <PackageReference Include="Autodesk.Revit.Sdk.Refs" Version="1.*" />
-    <PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitVersion)" Version="1.*" />
+<PackageReference Include="Autodesk.Revit.Sdk.Refs" Version="1.*"/>
+<PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitVersion)" Version="1.*"/>
 </ItemGroup>
 ```
 
@@ -85,16 +94,23 @@ In version 2.x, the repository introduces a custom **MSBuild SDK** that simplifi
 
 ### Migration Steps:
 
-1. **Update `<Project>` Tag:** Replace your standard `<Project Sdk="Microsoft.NET.Sdk">` (or similar) with the MSBuild SDK reference:
+1. **Update `<Project>` Tag:** Replace your standard `<Project Sdk="Microsoft.NET.Sdk">` (or similar) with the MSBuild
+   SDK reference:
    ```xml
    <Project Sdk="Autodesk.Revit.Sdk.Refs/2.0.0">
    ```
-2. **Remove Manual Package References:** Remove the `PackageReference` tags for `Autodesk.Revit.Sdk.Refs` and `Autodesk.Revit.Sdk.Refs.$(RevitVersion)` from your `.csproj` files. They are now implicitly referenced by the MSBuild SDK.
-3. **Remove Redundant Properties:** You can remove manual definitions of `TargetFramework`, `RevitPath`, `RevitExePath`, etc., unless you need to override them. The SDK handles target framework resolution (`net48`, `net8.0-windows`, `net10.0-windows`) and path definitions automatically based on the `RevitVersion`.
+2. **Remove Manual Package References:** Remove the `PackageReference` tags for `Autodesk.Revit.Sdk.Refs` and
+   `Autodesk.Revit.Sdk.Refs.$(RevitVersion)` from your `.csproj` files. They are now implicitly referenced by the
+   MSBuild SDK.
+3. **Remove Redundant Properties:** You can remove manual definitions of `TargetFramework`, `RevitPath`, `RevitExePath`,
+   etc., unless you need to override them. The SDK handles target framework resolution (`net48`, `net8.0-windows`,
+   `net10.0-windows`) and path definitions automatically based on the `RevitVersion`.
 
 ### How to Build & Run the Sample
 
-The sample project under `sample/SamplePlugin` relies on the locally built NuGet packages. To compile and run the sample, you first need to pack the SDK and the version packages into the `artifacts` directory so that NuGet can restore them locally.
+The sample project under `sample/SamplePlugin` relies on the locally built NuGet packages. To compile and run the
+sample, you first need to pack the SDK and the version packages into the `artifacts` directory so that NuGet can restore
+them locally.
 
 #### 1. Pack the Solution
 
@@ -104,7 +120,9 @@ Run `dotnet pack` on the solution, specifying the output path as `artifacts`:
 dotnet pack Autodesk.Revit.Sdk.Refs.slnx --output artifacts
 ```
 
-This will generate the `.nupkg` files (e.g. `Autodesk.Revit.Sdk.Refs.2.0.0.nupkg` and all versioned reference packages) in the `artifacts/` folder. The sample's `nuget.config` is configured to read packages from this directory as a local source.
+This will generate the `.nupkg` files (e.g. `Autodesk.Revit.Sdk.Refs.2.0.0.nupkg` and all versioned reference packages)
+in the `artifacts/` folder. The sample's `nuget.config` is configured to read packages from this directory as a local
+source.
 
 #### 2. Build Revit Project (Sample)
 

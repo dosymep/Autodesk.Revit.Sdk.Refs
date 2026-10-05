@@ -5,23 +5,30 @@
 [![Revit 2016-2027](https://img.shields.io/badge/Revit-2016--2027-blue.svg)](https://www.autodesk.com/products/revit/overview)
 
 Сборки ссылок (reference assemblies) для Revit SDK.  
-Содержат только метаданные из оригинальных сборок, сгенерированные с помощью [Refasmer](https://github.com/JetBrains/Refasmer).
+Содержат только метаданные из оригинальных сборок, сгенерированные с
+помощью [Refasmer](https://github.com/JetBrains/Refasmer).
 
 ## Использование
 
-Вы можете использовать кастомный **MSBuild SDK** `Autodesk.Revit.Sdk.Refs`. Просто укажите его в теге `<Project>` вашего проекта. 
+Вы можете использовать кастомный **MSBuild SDK** `Autodesk.Revit.Sdk.Refs`. Просто укажите его в теге `<Project>` вашего
+проекта.
 
-Настоятельно рекомендуется указывать версию SDK с маской для минорной версии и патчей, например: `Autodesk.Revit.Sdk.Refs/2.*.*`.
+Настоятельно рекомендуется указывать версию SDK с маской для минорной версии и патчей, например:
+`Autodesk.Revit.Sdk.Refs/2.*.*`.
 
 ### Политика версионирования
 
 Мы строго следуем SemVer (семантическому версионированию):
+
 - **Минорная версия** увеличивается (например, `2.1.0`) при добавлении библиотек/поддержки новых версий Revit.
 - **Патч-версия** увеличивается (например, `2.0.1`) при исправлении мелких ошибок или улучшении логики SDK.
-- Использование маски `2.*.*` позволяет автоматически получать новые версии Revit и исправления ошибок без необходимости ручного обновления, оставаясь при этом в рамках стабильной мажорной версии `2`.
-- **Мажорная версия** увеличивается (например, `3.0.0`) только при появлении ломающих изменений в публичном контракте MSBuild SDK, которые могут потребовать ручной миграции.
+- Использование маски `2.*.*` позволяет автоматически получать новые версии Revit и исправления ошибок без необходимости
+  ручного обновления, оставаясь при этом в рамках стабильной мажорной версии `2`.
+- **Мажорная версия** увеличивается (например, `3.0.0`) только при появлении ломающих изменений в публичном контракте
+  MSBuild SDK, которые могут потребовать ручной миграции.
 
 ```xml
+
 <Project Sdk="Autodesk.Revit.Sdk.Refs/2.*.*">
 
     <PropertyGroup>
@@ -31,7 +38,7 @@
 
         <!-- Опционально: установите true для вывода информации о сборке во время компиляции -->
         <ShowBuildInfo>true</ShowBuildInfo>
-        
+
         <!-- Определите конфигурации, которые вы хотите использовать -->
         <Configurations>Debug;Release;D2024;D2025;D2026;В2026.5;D2027</Configurations>
     </PropertyGroup>
@@ -40,34 +47,38 @@
 ```
 
 MSBuild SDK автоматически берет на себя:
-- Выбор правильной целевой платформы (Target Framework) на основе свойства `RevitVersion` (например, `net48` для версий до 2025, `net8.0-windows` для 2025-2026 и `net10.0-windows` для 2027).
+
+- Выбор правильной целевой платформы (Target Framework) на основе свойства `RevitVersion` (например, `net48` для версий
+  до 2025, `net8.0-windows` для 2025-2026 и `net10.0-windows` для 2027).
 
 ### Фреймворки и версии Revit
 
 | Версия Revit | Целевой фреймворк (Target Framework) |
-| ------------ | ----------------------------------- |
-| 2016 - 2024  | `net48`                             |
-| 2025         | `net8.0-windows`                    |
-| 2026         | `net8.0-windows`                    |
-| 2026.5       | `net10.0-windows`                   |
-| 2027         | `net10.0-windows`                   |
+|--------------|--------------------------------------|
+| 2016 - 2024  | `net48`                              |
+| 2025         | `net8.0-windows`                     |
+| 2026         | `net8.0-windows`                     |
+| 2026.5       | `net10.0-windows`                    |
+| 2027         | `net10.0-windows`                    |
 
 ### Автоматически определяемые свойства Revit
 
-| Имя свойства | Значение / Путь | Описание |
-| ------------ | --------------- | -------- |
-| `RevitPath` | `$(ProgramFiles)\Autodesk\Revit $(RevitVersion)` *(или `...Revit MEP $(RevitVersion)` для 2016)* | Путь к директории установки Revit. |
-| `RevitExePath` | `$(RevitPath)\Revit.exe` | Путь к исполняемому файлу `Revit.exe`. |
-| `RevitAddinsPath` | `$(ProgramData)\Autodesk\Revit\Addins\$(RevitVersion)` | Путь к общей (для всех пользователей) директории плагинов (Addins) Revit. |
-| `RevitAddinsUserPath` | `$(AppData)\Autodesk\Revit\Addins\$(RevitVersion)` | Путь к пользовательской директории плагинов (Addins) Revit. |
-| `RevitApplicationsPath` | `$(ProgramData)\Autodesk\ApplicationPlugins` | Путь к директории Autodesk Application Plugins. |
+| Имя свойства            | Значение / Путь                                                                                  | Описание                                                                  |
+|-------------------------|--------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| `RevitPath`             | `$(ProgramFiles)\Autodesk\Revit $(RevitVersion)` *(или `...Revit MEP $(RevitVersion)` для 2016)* | Путь к директории установки Revit.                                        |
+| `RevitExePath`          | `$(RevitPath)\Revit.exe`                                                                         | Путь к исполняемому файлу `Revit.exe`.                                    |
+| `RevitAddinsPath`       | `$(ProgramData)\Autodesk\Revit\Addins\$(RevitVersion)`                                           | Путь к общей (для всех пользователей) директории плагинов (Addins) Revit. |
+| `RevitAddinsUserPath`   | `$(AppData)\Autodesk\Revit\Addins\$(RevitVersion)`                                               | Путь к пользовательской директории плагинов (Addins) Revit.               |
+| `RevitApplicationsPath` | `$(ProgramData)\Autodesk\ApplicationPlugins`                                                     | Путь к директории Autodesk Application Plugins.                           |
 
-- Неявное подключение пакетов `Autodesk.Revit.Sdk.Refs` и соответствующей версии пакета сборок `Autodesk.Revit.Sdk.Refs.$(RevitVersion)`.
+- Неявное подключение пакетов `Autodesk.Revit.Sdk.Refs` и соответствующей версии пакета сборок
+  `Autodesk.Revit.Sdk.Refs.$(RevitVersion)`.
 - Автоматическая генерация констант компиляции для версий Revit.
 
 ## Миграция с v1 на v2
 
-В версии 1.x вам приходилось вручную указывать целевые фреймворки, дефолтные свойства и подключать два отдельных NuGet-пакета в каждом проекте:
+В версии 1.x вам приходилось вручную указывать целевые фреймворки, дефолтные свойства и подключать два отдельных
+NuGet-пакета в каждом проекте:
 
 ```xml
 <!-- Стиль v1.x (Устаревший) -->
@@ -76,8 +87,8 @@ MSBuild SDK автоматически берет на себя:
     <TargetFramework Condition="'$(TargetFramework)' == ''">net48</TargetFramework>
 </PropertyGroup>
 <ItemGroup>
-    <PackageReference Include="Autodesk.Revit.Sdk.Refs" Version="1.*" />
-    <PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitVersion)" Version="1.*" />
+<PackageReference Include="Autodesk.Revit.Sdk.Refs" Version="1.*"/>
+<PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitVersion)" Version="1.*"/>
 </ItemGroup>
 ```
 
@@ -85,16 +96,23 @@ MSBuild SDK автоматически берет на себя:
 
 ### Шаги по миграции:
 
-1. **Обновите тег `<Project>`:** Замените ваш стандартный `<Project Sdk="Microsoft.NET.Sdk">` (или аналогичный) на ссылку на MSBuild SDK:
+1. **Обновите тег `<Project>`:** Замените ваш стандартный `<Project Sdk="Microsoft.NET.Sdk">` (или аналогичный) на
+   ссылку на MSBuild SDK:
    ```xml
    <Project Sdk="Autodesk.Revit.Sdk.Refs/2.0.0">
    ```
-2. **Удалите вручную добавленные ссылки на пакеты:** Удалите теги `PackageReference` для пакетов `Autodesk.Revit.Sdk.Refs` и `Autodesk.Revit.Sdk.Refs.$(RevitVersion)` из ваших `.csproj` файлов. Теперь они подключаются неявно с помощью MSBuild SDK.
-3. **Удалите избыточные свойства:** Вы можете удалить ручные определения `TargetFramework`, `RevitPath`, `RevitExePath` и т.д., если вам не требуется их переопределять. SDK автоматически определяет целевой фреймворк (`net48`, `net8.0-windows`, `net10.0-windows`) и пути на основе переданного `RevitVersion`.
+2. **Удалите вручную добавленные ссылки на пакеты:** Удалите теги `PackageReference` для пакетов
+   `Autodesk.Revit.Sdk.Refs` и `Autodesk.Revit.Sdk.Refs.$(RevitVersion)` из ваших `.csproj` файлов. Теперь они
+   подключаются неявно с помощью MSBuild SDK.
+3. **Удалите избыточные свойства:** Вы можете удалить ручные определения `TargetFramework`, `RevitPath`, `RevitExePath`
+   и т.д., если вам не требуется их переопределять. SDK автоматически определяет целевой фреймворк (`net48`,
+   `net8.0-windows`, `net10.0-windows`) и пути на основе переданного `RevitVersion`.
 
 ### Как собрать и запустить пример (Sample)
 
-Пример проекта в папке `sample/SamplePlugin` завязан на локально собранные NuGet-пакеты. Чтобы скомпилировать и запустить пример, вам сначала нужно упаковать (pack) SDK и пакеты версий в директорию `artifacts`, чтобы NuGet мог восстановить их локально.
+Пример проекта в папке `sample/SamplePlugin` завязан на локально собранные NuGet-пакеты. Чтобы скомпилировать и
+запустить пример, вам сначала нужно упаковать (pack) SDK и пакеты версий в директорию `artifacts`, чтобы NuGet мог
+восстановить их локально.
 
 #### 1. Упаковка решения (Pack)
 
@@ -104,7 +122,8 @@ MSBuild SDK автоматически берет на себя:
 dotnet pack Autodesk.Revit.Sdk.Refs.slnx --output artifacts
 ```
 
-Это создаст файлы `.nupkg` (например, `Autodesk.Revit.Sdk.Refs.2.0.0.nupkg` и все версии пакетов ссылок) в папке `artifacts/`. Файл `nuget.config` примера настроен на чтение пакетов из этой директории как локального источника.
+Это создаст файлы `.nupkg` (например, `Autodesk.Revit.Sdk.Refs.2.0.0.nupkg` и все версии пакетов ссылок) в папке
+`artifacts/`. Файл `nuget.config` примера настроен на чтение пакетов из этой директории как локального источника.
 
 #### 2. Сборка проекта Revit (Sample)
 
