@@ -82,14 +82,16 @@ NuGet-пакета в каждом проекте:
 
 ```xml
 <!-- Стиль v1.x (Устаревший) -->
-<PropertyGroup>
-    <RevitVersion Condition="'$(RevitVersion)' == ''">2016</RevitVersion>
-    <TargetFramework Condition="'$(TargetFramework)' == ''">net48</TargetFramework>
-</PropertyGroup>
-<ItemGroup>
-<PackageReference Include="Autodesk.Revit.Sdk.Refs" Version="1.*"/>
-<PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitVersion)" Version="1.*"/>
-</ItemGroup>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <RevitVersion Condition="'$(RevitVersion)' == ''">2016</RevitVersion>
+        <TargetFramework Condition="'$(TargetFramework)' == ''">net48</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Autodesk.Revit.Sdk.Refs" Version="1.*"/>
+        <PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitVersion)" Version="1.*"/>
+    </ItemGroup>
+</Project>
 ```
 
 В версии 2.x проект предлагает кастомный **MSBuild SDK**, который значительно упрощает этот процесс.
@@ -100,6 +102,8 @@ NuGet-пакета в каждом проекте:
    ссылку на MSBuild SDK:
    ```xml
    <Project Sdk="Autodesk.Revit.Sdk.Refs/2.0.0">
+       <!-- some properties -->
+   </Project>
    ```
 2. **Удалите вручную добавленные ссылки на пакеты:** Удалите теги `PackageReference` для пакетов
    `Autodesk.Revit.Sdk.Refs` и `Autodesk.Revit.Sdk.Refs.$(RevitVersion)` из ваших `.csproj` файлов. Теперь они

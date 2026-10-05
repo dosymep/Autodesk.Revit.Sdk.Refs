@@ -80,14 +80,16 @@ packages in every project:
 
 ```xml
 <!-- v1.x Style (Old) -->
-<PropertyGroup>
-    <RevitVersion Condition="'$(RevitVersion)' == ''">2016</RevitVersion>
-    <TargetFramework Condition="'$(TargetFramework)' == ''">net48</TargetFramework>
-</PropertyGroup>
-<ItemGroup>
-<PackageReference Include="Autodesk.Revit.Sdk.Refs" Version="1.*"/>
-<PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitVersion)" Version="1.*"/>
-</ItemGroup>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <RevitVersion Condition="'$(RevitVersion)' == ''">2016</RevitVersion>
+        <TargetFramework Condition="'$(TargetFramework)' == ''">net48</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Autodesk.Revit.Sdk.Refs" Version="1.*"/>
+        <PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitVersion)" Version="1.*"/>
+    </ItemGroup>
+</Project>
 ```
 
 In version 2.x, the repository introduces a custom **MSBuild SDK** that simplifies this process significantly.
@@ -98,6 +100,8 @@ In version 2.x, the repository introduces a custom **MSBuild SDK** that simplifi
    SDK reference:
    ```xml
    <Project Sdk="Autodesk.Revit.Sdk.Refs/2.0.0">
+       <!-- some properties -->
+   </Project>
    ```
 2. **Remove Manual Package References:** Remove the `PackageReference` tags for `Autodesk.Revit.Sdk.Refs` and
    `Autodesk.Revit.Sdk.Refs.$(RevitVersion)` from your `.csproj` files. They are now implicitly referenced by the
