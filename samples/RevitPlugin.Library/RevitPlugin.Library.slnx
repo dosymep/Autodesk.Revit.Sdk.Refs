@@ -17,6 +17,10 @@
     <BuildType Name="Release" />
     <Platform Name="x64" />
   </Configurations>
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+    <File Path="README.ru.md" />
+  </Folder>
   <Project Path="build/_build.csproj">
     <BuildType Solution="D2016|*" Project="Debug" />
     <BuildType Solution="D2017|*" Project="Debug" />
