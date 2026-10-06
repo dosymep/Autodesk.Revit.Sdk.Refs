@@ -1,0 +1,39 @@
+﻿<Solution>
+  <Configurations>
+    <BuildType Name="D2016" />
+    <BuildType Name="D2017" />
+    <BuildType Name="D2018" />
+    <BuildType Name="D2019" />
+    <BuildType Name="D2020" />
+    <BuildType Name="D2021" />
+    <BuildType Name="D2022" />
+    <BuildType Name="D2023" />
+    <BuildType Name="D2024" />
+    <BuildType Name="D2025" />
+    <BuildType Name="D2026" />
+    <BuildType Name="D2026.5" />
+    <BuildType Name="D2027" />
+    <BuildType Name="Debug" />
+    <BuildType Name="Release" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="build/_build.csproj">
+    <BuildType Solution="D2016|*" Project="Debug" />
+    <BuildType Solution="D2017|*" Project="Debug" />
+    <BuildType Solution="D2018|*" Project="Debug" />
+    <BuildType Solution="D2019|*" Project="Debug" />
+    <BuildType Solution="D2020|*" Project="Debug" />
+    <BuildType Solution="D2021|*" Project="Debug" />
+    <BuildType Solution="D2022|*" Project="Debug" />
+    <BuildType Solution="D2023|*" Project="Debug" />
+    <BuildType Solution="D2024|*" Project="Debug" />
+    <BuildType Solution="D2025|*" Project="Debug" />
+    <BuildType Solution="D2026.5|*" Project="Debug" />
+    <BuildType Solution="D2026|*" Project="Debug" />
+    <BuildType Solution="D2027|*" Project="Debug" />
+    <Build Project="false" />
+  </Project>
+  <Project Path="RevitPlugin.Library/RevitPlugin.Library.csproj">
+    <Platform Project="x64" />
+  </Project>
+</Solution>
