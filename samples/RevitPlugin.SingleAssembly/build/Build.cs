@@ -60,7 +60,7 @@ class Build : NukeBuild, IHazSolution {
             DotNetBuild(s => s
                 .SetConfiguration(Configuration)
                 .SetProjectFile(((IHazSolution) this)
-                    .Solution.GetProject("SamplePlugin"))
+                    .Solution.GetProject("RevitPlugin.SingleAssembly"))
                 .When(IsServerBuild, _ => _
                     .EnableContinuousIntegrationBuild())
                 .CombineWith(RevitVersions, (settings, version) => settings

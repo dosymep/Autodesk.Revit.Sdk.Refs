@@ -33,7 +33,7 @@
     <BuildType Solution="D2027|*" Project="Debug" />
     <Build Project="false" />
   </Project>
-  <Project Path="SamplePlugin/SamplePlugin.csproj">
+  <Project Path="RevitPlugin.SingleAssembly/RevitPlugin.SingleAssembly.csproj">
     <Platform Project="x64" />
   </Project>
 </Solution>

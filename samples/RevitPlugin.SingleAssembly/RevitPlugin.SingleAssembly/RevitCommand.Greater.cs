@@ -1,4 +1,4 @@
-﻿namespace SamplePlugin;
+﻿namespace RevitPlugin.SingleAssembly;
 
 public partial class RevitCommand {
 #if REVIT2016_OR_GREATER

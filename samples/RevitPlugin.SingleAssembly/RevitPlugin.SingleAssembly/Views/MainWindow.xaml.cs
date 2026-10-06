@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace SamplePlugin.Views;
+namespace RevitPlugin.SingleAssembly.Views;
 
 public partial class MainWindow {
     public MainWindow() {
