@@ -7,7 +7,7 @@
         <RevitApplicationsPath>$(ProgramData)\Autodesk\ApplicationPlugins</RevitApplicationsPath>
     </PropertyGroup>
 
-    <PropertyGroup Condition="$(RevitVersion) == 2016">
+    <PropertyGroup Condition="'$(RevitVersion)' == '2016'">
         <RevitPath>$(ProgramFiles)\Autodesk\Revit MEP $(RevitVersion)</RevitPath>
         <RevitExePath>$(ProgramFiles)\Autodesk\Revit MEP $(RevitVersion)\Revit.exe</RevitExePath>
     </PropertyGroup>
