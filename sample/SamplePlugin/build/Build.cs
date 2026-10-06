@@ -1,12 +1,11 @@
-using System.Collections.Generic;
 using System.Linq;
-
-using dosymep.Nuke.RevitVersions;
 
 using Nuke.Common;
 using Nuke.Common.IO;
+using Nuke.Common.ProjectModel;
 using Nuke.Common.Tooling;
 using Nuke.Common.Tools.DotNet;
+using Nuke.Common.Utilities;
 using Nuke.Components;
 
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
@@ -15,7 +14,7 @@ class Build : NukeBuild, IHazSolution {
     /// Support plugins are available for:
     /// - JetBrains ReSharper        https://nuke.build/resharper
     /// - JetBrains Rider            https://nuke.build/rider
-    /// - Microsoft VisualStudio     https://nuke.build/visualstudio
+    /// - Microsoft Visual Studio    https://nuke.build/visualstudio
     /// - Microsoft VSCode           https://nuke.build/vscode
     public static int Main() => Execute<Build>(x => x.Compile);
 
@@ -28,30 +27,13 @@ class Build : NukeBuild, IHazSolution {
     AbsolutePath Output => RootDirectory / "bin";
 
     /// <summary>
-    /// Min Revit version.
+    /// Build Revit versions.
     /// </summary>
-    [Parameter("Min Revit version.")]
-    readonly RevitVersion MinVersion = RevitVersion.Rv2016;
+    [Parameter("Build Revit versions.", List = true)]
+    readonly string[] RevitVersions = [];
 
     /// <summary>
-    /// Max Revit version.
-    /// </summary>
-    [Parameter("Max Revit version.")]
-    readonly RevitVersion MaxVersion = RevitVersion.Rv2025;
-
-    [Parameter("Build Revit versions.")] readonly RevitVersion[] RevitVersions = new RevitVersion[0];
-
-    IEnumerable<RevitVersion> BuildRevitVersions;
-
-    protected override void OnBuildInitialized() {
-        base.OnBuildInitialized();
-        BuildRevitVersions = RevitVersions.Length > 0
-            ? RevitVersions
-            : RevitVersion.GetRevitVersions(MinVersion, MaxVersion);
-    }
-
-    /// <summary>
-    /// Cleans <see cref="Output"/> and build and obj folders in project.
+    /// Cleans <see cref="Output"/> and build and obj folders in the project.
     /// </summary>
     Target Clean => _ => _
         .Executes(() => {
@@ -70,23 +52,19 @@ class Build : NukeBuild, IHazSolution {
         });
 
     /// <summary>
-    /// Compile project with all revit versions.
+    /// Compile the project with all revit versions.
     /// </summary>
     Target Compile => _ => _
         .DependsOn(Restore)
         .Executes(() => {
             DotNetBuild(s => s
-                .EnableForce()
-                .DisableNoRestore()
                 .SetConfiguration(Configuration)
                 .SetProjectFile(((IHazSolution) this)
                     .Solution.GetProject("SamplePlugin"))
                 .When(IsServerBuild, _ => _
                     .EnableContinuousIntegrationBuild())
-                .CombineWith(BuildRevitVersions, (settings, version) => {
-                    return settings
-                        .SetOutputDirectory(Output / version)
-                        .SetProperty("RevitVersion", (int) version);
-                }));
+                .CombineWith(RevitVersions, (settings, version) => settings
+                    .SetOutputDirectory(Output / version)
+                    .SetProperty("RevitVersion", version)));
         });
 }
