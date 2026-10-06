@@ -11,23 +11,18 @@ Only metadata from assemblies by [Refasmer](https://github.com/JetBrains/Refasme
 
 You can use the custom **MSBuild SDK** `Autodesk.Revit.Sdk.Refs`. Just reference it in your project's `<Project>` tag.
 
-It is highly recommended to reference the SDK using a wildcard for the minor and patch versions, for example:
-`Autodesk.Revit.Sdk.Refs/2.*.*`.
-
 ### Versioning Policy
 
 We strictly follow SemVer:
 
 - **Minor version** increases (e.g. `2.1.0`) when new Revit reference libraries/versions are added.
 - **Patch version** increases (e.g. `2.0.1`) when minor fixes or internal SDK improvements are released.
-- Using `2.*.*` allows you to automatically receive new Revit versions and bug fixes without manual intervention, while
-  staying safely within major version `2`.
 - **Major version** increases (e.g. `3.0.0`) only when there are breaking changes in the MSBuild SDK's public contract,
   which might require manual migration.
 
 ```xml
 
-<Project Sdk="Autodesk.Revit.Sdk.Refs/2.*.*">
+<Project Sdk="Autodesk.Revit.Sdk.Refs/2.0.0">
 
     <PropertyGroup>
         <UseWpf>true</UseWpf>
