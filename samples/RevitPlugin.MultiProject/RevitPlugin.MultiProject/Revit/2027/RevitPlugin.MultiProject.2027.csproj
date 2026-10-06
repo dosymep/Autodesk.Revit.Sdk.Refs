@@ -1,0 +1,23 @@
+<Project Sdk="Autodesk.Revit.Sdk.Refs/2.0.0">
+
+    <PropertyGroup>
+        <UseWpf>true</UseWpf>
+        <Platforms>x64</Platforms>
+        <OutputType>Library</OutputType>
+        <RootNamespace>RevitPlugin.MultiProject</RootNamespace>
+
+        <RevitVersion>2027</RevitVersion>
+        <ShowBuildInfo>true</ShowBuildInfo>
+        <Configurations>Debug;Release</Configurations>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Update="RevitCommand.Equal.cs">
+            <DependentUpon>RevitCommand.cs</DependentUpon>
+        </Compile>
+        <Compile Update="RevitCommand.Greater.cs">
+            <DependentUpon>RevitCommand.cs</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+</Project>

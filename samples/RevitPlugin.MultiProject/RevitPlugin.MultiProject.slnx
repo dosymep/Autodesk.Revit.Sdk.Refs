@@ -1,0 +1,25 @@
+﻿<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Release" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="build/_build.csproj">
+    <Build Project="false" />
+  </Project>
+  <Project Path="RevitPlugin.MultiProject/Revit/2024/RevitPlugin.MultiProject.2024.csproj">
+    <Platform Project="x64" />
+  </Project>
+    <Project Path="RevitPlugin.MultiProject/Revit/2025/RevitPlugin.MultiProject.2025.csproj">
+        <Platform Project="x64" />
+    </Project>
+    <Project Path="RevitPlugin.MultiProject/Revit/2026/RevitPlugin.MultiProject.2026.csproj">
+        <Platform Project="x64" />
+    </Project>
+    <Project Path="RevitPlugin.MultiProject/Revit/2026.5/RevitPlugin.MultiProject.2026.5.csproj">
+        <Platform Project="x64" />
+    </Project>
+    <Project Path="RevitPlugin.MultiProject/Revit/2027/RevitPlugin.MultiProject.2027.csproj">
+        <Platform Project="x64" />
+    </Project>
+</Solution>
