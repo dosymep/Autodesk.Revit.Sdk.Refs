@@ -124,14 +124,14 @@ dotnet pack Autodesk.Revit.Sdk.Refs.slnx --output artifacts
 Это создаст файлы `.nupkg` (например, `Autodesk.Revit.Sdk.Refs.2.0.0.nupkg` и все версии пакетов ссылок) в папке
 `artifacts/`. Файл `nuget.config` примера настроен на чтение пакетов из этой директории как локального источника.
 
-#### 2. Сборка проекта Revit (Sample)
+#### 2. Сборка проекта Revit
 
-Теперь вы можете перейти в папку примера и скомпилировать проект под нужную конфигурацию/версию Revit:
+Теперь вы можете скомпилировать свой проект для нужной вам конфигурации/версии Revit:
 
 ##### Использование dotnet cli
 
 ```bash
-dotnet build samples/SamplePlugin/SamplePlugin/SamplePlugin.csproj -c <Configuration> -p:RevitVersion=<RevitVersion>
+dotnet build <ProjectName>.csproj -c <Configuration> -p:RevitVersion=<RevitVersion>
 ```
 
 ##### Использование nuke build

@@ -123,14 +123,14 @@ This will generate the `.nupkg` files (e.g. `Autodesk.Revit.Sdk.Refs.2.0.0.nupkg
 in the `artifacts/` folder. The sample's `nuget.config` is configured to read packages from this directory as a local
 source.
 
-#### 2. Build Revit Project (Sample)
+#### 2. Build Revit Project
 
-Now you can go to the sample folder and compile the sample project for your desired configuration/Revit version:
+Now you can compile your project for your desired configuration/Revit version:
 
 ##### dotnet cli
 
 ```bash
-dotnet build samples/SamplePlugin/SamplePlugin/SamplePlugin.csproj -c <Configuration> -p:RevitVersion=<RevitVersion>
+dotnet build <ProjectName>.csproj -c <Configuration> -p:RevitVersion=<RevitVersion>
 ```
 
 ##### nuke build
