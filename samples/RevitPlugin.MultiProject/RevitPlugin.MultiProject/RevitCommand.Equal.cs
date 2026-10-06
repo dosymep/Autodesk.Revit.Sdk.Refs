@@ -23,6 +23,10 @@ public partial class RevitCommand {
         public int RevitVersion => 2024;
 #elif REVIT2025
         public int RevitVersion => 2025;
+#elif REVIT2026
+        public int RevitVersion => 2026;
+#elif REVIT2027
+        public int RevitVersion => 2027;
 #else
     public int RevitVersion => throw new NotImplementedException();
 #endif

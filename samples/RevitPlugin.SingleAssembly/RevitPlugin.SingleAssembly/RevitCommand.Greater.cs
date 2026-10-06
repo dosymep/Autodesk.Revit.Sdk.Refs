@@ -40,4 +40,12 @@ public partial class RevitCommand {
 #if REVIT2025_OR_GREATER
     public int RevitVersionOrGreater2025 => 2025;
 #endif
+    
+#if REVIT2026_OR_GREATER
+    public int RevitVersionOrGreater2026 => 2026;
+#endif
+    
+#if REVIT2027_OR_GREATER
+    public int RevitVersionOrGreater2027 => 2027;
+#endif
 }
