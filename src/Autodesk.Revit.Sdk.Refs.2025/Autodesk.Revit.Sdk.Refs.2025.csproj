@@ -5,6 +5,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include="../../libs/$(RevitVersion)/net8.0-windows/**" Pack="true" PackagePath="ref/net8.0-windows7.0/" Link="refs/net48/%(FileName)%(FileExt)"/>
+        <Content Include="../../libs/$(RevitVersion)/net8.0-windows/**" Pack="true" PackagePath="ref/net8.0-windows7.0/" Link="refs/net8.0-windows/%(FileName)%(FileExt)"/>
     </ItemGroup>
 </Project>
