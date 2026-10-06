@@ -107,7 +107,7 @@ In version 2.x, the repository introduces a custom **MSBuild SDK** that simplifi
 
 ### How to Build & Run the Sample
 
-The sample project under `sample/SamplePlugin` relies on the locally built NuGet packages. To compile and run the
+The sample project under `samples/SamplePlugin` relies on the locally built NuGet packages. To compile and run the
 sample, you first need to pack the SDK and the version packages into the `artifacts` directory so that NuGet can restore
 them locally.
 
@@ -130,7 +130,7 @@ Now you can go to the sample folder and compile the sample project for your desi
 ##### dotnet cli
 
 ```bash
-dotnet build sample/SamplePlugin/SamplePlugin/SamplePlugin.csproj -c <Configuration> -p:RevitVersion=<RevitVersion>
+dotnet build samples/SamplePlugin/SamplePlugin/SamplePlugin.csproj -c <Configuration> -p:RevitVersion=<RevitVersion>
 ```
 
 ##### nuke build

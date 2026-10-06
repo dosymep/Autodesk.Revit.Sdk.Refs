@@ -109,7 +109,7 @@ NuGet-пакета в каждом проекте:
 
 ### Как собрать и запустить пример (Sample)
 
-Пример проекта в папке `sample/SamplePlugin` завязан на локально собранные NuGet-пакеты. Чтобы скомпилировать и
+Пример проекта в папке `samples/SamplePlugin` завязан на локально собранные NuGet-пакеты. Чтобы скомпилировать и
 запустить пример, вам сначала нужно упаковать (pack) SDK и пакеты версий в директорию `artifacts`, чтобы NuGet мог
 восстановить их локально.
 
@@ -131,7 +131,7 @@ dotnet pack Autodesk.Revit.Sdk.Refs.slnx --output artifacts
 ##### Использование dotnet cli
 
 ```bash
-dotnet build sample/SamplePlugin/SamplePlugin/SamplePlugin.csproj -c <Configuration> -p:RevitVersion=<RevitVersion>
+dotnet build samples/SamplePlugin/SamplePlugin/SamplePlugin.csproj -c <Configuration> -p:RevitVersion=<RevitVersion>
 ```
 
 ##### Использование nuke build
