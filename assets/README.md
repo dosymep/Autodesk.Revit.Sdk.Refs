@@ -41,8 +41,9 @@ We strictly follow SemVer:
 
 The MSBuild SDK automatically handles:
 
-- Correct target framework selection based on `RevitVersion` (e.g. `net48` for versions prior to 2025, `net8.0-windows`
-  for 2025-2026, and `net10.0-windows` for 2027).
+- **Target Framework resolution** based on `RevitVersion` (e.g. `net48` for versions prior to 2025, `net8.0-windows` for 2025-2026, and `net10.0-windows` for 2027).
+- **Implicit references** to `Autodesk.Revit.Sdk.Refs` and version-specific `Autodesk.Revit.Sdk.Refs.$(RevitVersion)` reference assemblies packages.
+- **Revit compilation constants** auto-definition (e.g. `REVIT2024`, `REVIT2024_OR_GREATER`).
 
 ### Frameworks & Revit Versions
 
@@ -64,9 +65,12 @@ The MSBuild SDK automatically handles:
 | `RevitAddinsUserPath`   | `$(AppData)\Autodesk\Revit\Addins\$(RevitVersion)`                                              | Path to the user-specific (current user) Revit Addins directory. |
 | `RevitApplicationsPath` | `$(ProgramData)\Autodesk\ApplicationPlugins`                                                    | Path to Autodesk Application Plugins directory.                  |
 
-- Implicit references to `Autodesk.Revit.Sdk.Refs` and the specific versioned package
-  `Autodesk.Revit.Sdk.Refs.$(RevitVersion)`.
-- Generating Revit version compilation constants automatically.
+### Optional SDK Properties
+
+| Property Name            | Default Value | Description                                                                                                                                                                                                                   |
+|--------------------------|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ShowBuildInfo`          | `false`       | Set to `true` to print diagnostic build details during compilation.                                                                                                                                                           |
+| `IncludeEmbeddedLibrary` | `true`        | When `true`, the SDK implicitly references the `Autodesk.Revit.Sdk.Refs.$(RevitVersion)` package containing reference assemblies. Set to `false` if you want to prevent automatic referencing and provide libraries manually. |
 
 ## Migration from v1 to v2
 
