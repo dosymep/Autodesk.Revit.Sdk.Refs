@@ -2,12 +2,12 @@
 
     <PropertyGroup>
         <UseWpf>true</UseWpf>
-        <Platforms>x64</Platforms>
-        <OutputType>Library</OutputType>
         <RootNamespace>RevitPlugin.MultiProject</RootNamespace>
 
         <RevitVersion>2025</RevitVersion>
         <ShowBuildInfo>true</ShowBuildInfo>
+        <IncludeEmbeddedLibrary>true</IncludeEmbeddedLibrary>
+        
         <Configurations>Debug;Release</Configurations>
     </PropertyGroup>
 
