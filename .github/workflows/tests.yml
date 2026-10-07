@@ -26,11 +26,11 @@ jobs:
 
       - name: Build RevitPlugin.CentralPackageManagement
         working-directory: samples/RevitPlugin.CentralPackageManagement
-        run: ./build.cmd compile --revit-versions 2024 2025 2026.5 2027
+        run: ./build.cmd compile --revit-versions 2024 2025 2026 2026.5 2027
 
       - name: Build RevitPlugin.Library
         working-directory: samples/RevitPlugin.Library
-        run: ./build.cmd compile --revit-versions 2024 2025 2026.5 2027
+        run: ./build.cmd compile --revit-versions 2024 2025 2026 2026.5 2027
 
       - name: Build RevitPlugin.MultiProject
         working-directory: samples/RevitPlugin.MultiProject
@@ -38,4 +38,4 @@ jobs:
 
       - name: Build RevitPlugin.SingleAssembly
         working-directory: samples/RevitPlugin.SingleAssembly
-        run: ./build.cmd compile --revit-versions 2024 2025 2026.5 2027
+        run: ./build.cmd compile --revit-versions 2024 2025 2026 2026.5 2027
