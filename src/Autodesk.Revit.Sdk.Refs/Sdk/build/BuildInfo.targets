@@ -18,10 +18,10 @@
         <Message Importance="high" Text="  $(_ClrCyan)╔══════════════════════════════════════════════════╗$(_ClrReset)"/>
         <Message Importance="high" Text="  $(_ClrCyan)║$(_ClrReset) $(_ClrWhite)🧱 REVIT ADD-IN BUILD INFO$(_ClrReset)                       $(_ClrCyan)║$(_ClrReset)"/>
         <Message Importance="high" Text="  $(_ClrCyan)╠══════════════════════════════════════════════════╣$(_ClrReset)"/>
-        <Message Importance="high" Text="  $(_ClrCyan)║$(_ClrReset)  📅 Сборка от:     $(_ClrYellow)$(_BuildTime)$(_ClrReset)"/>
-        <Message Importance="high" Text="  $(_ClrCyan)║$(_ClrReset)  📦 Версия:        $(_ClrYellow)$(_CurrentVersion)$(_ClrReset)"/>
-        <Message Importance="high" Text="  $(_ClrCyan)║$(_ClrReset)  🔧 Конфигурация:  $(_ClrGreen)$(Configuration)$(_ClrReset) | $(_ClrGray)$(Platform)$(_ClrReset)"/>
-        <Message Importance="high" Text="  $(_ClrCyan)║$(_ClrReset)  🎯 Платформа:     $(_ClrGreen)$(TargetFramework)$(_ClrReset)"/>
+        <Message Importance="high" Text="  $(_ClrCyan)║$(_ClrReset)  📅 Built at:      $(_ClrYellow)$(_BuildTime)$(_ClrReset)"/>
+        <Message Importance="high" Text="  $(_ClrCyan)║$(_ClrReset)  📦 Version:       $(_ClrYellow)$(_CurrentVersion)$(_ClrReset)"/>
+        <Message Importance="high" Text="  $(_ClrCyan)║$(_ClrReset)  🔧 Configuration: $(_ClrGreen)$(Configuration)$(_ClrReset) | $(_ClrGray)$(Platform)$(_ClrReset)"/>
+        <Message Importance="high" Text="  $(_ClrCyan)║$(_ClrReset)  🎯 Framework:     $(_ClrGreen)$(TargetFramework)$(_ClrReset)"/>
         <Message Importance="high" Text="  $(_ClrCyan)╠══════════════════════════════════════════════════╣$(_ClrReset)"/>
         <Message Importance="high" Text="  $(_ClrCyan)║$(_ClrReset)  🏢 Revit Target:  $(_ClrWhite)$(RevitVersion)$(_ClrReset) (API: $(_ClrGray)$(RevitMajorVersion)$(_ClrReset))"/>
         <Message Importance="high" Text="  $(_ClrCyan)║$(_ClrReset)  📁 Build Output:  $(_ClrGray)$(_RelativeTargetDir)$(_ClrReset)"/>
