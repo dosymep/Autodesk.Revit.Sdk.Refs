@@ -25,7 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       
-      # Install the .NET 8.0 workload
+      # Install the .NET 10.0 workload
       - name: Install .NET Core
         uses: actions/setup-dotnet@v6
         with:
