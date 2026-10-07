@@ -1,0 +1,41 @@
+﻿name: tests
+
+on:
+  pull_request:
+    types: [ opened, synchronize ]
+    branches: [ main, master ]
+  workflow_dispatch:
+
+env:
+  output: artifacts
+  configuration: Release
+
+jobs:
+  test-samples:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+      
+      - name: Install .NET Core
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 10.0.x
+      
+      - name: Pack MSBuild SDK
+        run: dotnet pack -c ${{ env.configuration }} -o ${{ env.output }}
+
+      - name: Build RevitPlugin.CentralPackageManagement
+        working-directory: samples/RevitPlugin.CentralPackageManagement
+        run: ./build.cmd compile --revit-versions 2024 2025 2026.5 2027
+
+      - name: Build RevitPlugin.Library
+        working-directory: samples/RevitPlugin.Library
+        run: ./build.cmd compile --revit-versions 2024 2025 2026.5 2027
+
+      - name: Build RevitPlugin.MultiProject
+        working-directory: samples/RevitPlugin.MultiProject
+        run: ./build.cmd compile
+
+      - name: Build RevitPlugin.SingleAssembly
+        working-directory: samples/RevitPlugin.SingleAssembly
+        run: ./build.cmd compile --revit-versions 2024 2025 2026.5 2027
