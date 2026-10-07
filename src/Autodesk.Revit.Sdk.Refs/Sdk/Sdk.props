@@ -2,6 +2,8 @@
 
     <Import Project="build/Common.props"/>
     <Import Project="build/Configurations.props"/>
+    <Import Project="build/TargetFramework.props"/>
+    <Import Project="build/RevitProperties.props"/>
 
     <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk"/>
 

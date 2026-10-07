@@ -1,4 +1,10 @@
 ﻿<Project>
+    
+    <PropertyGroup>
+        <Platforms>x64</Platforms>
+        <OutputType>Library</OutputType>
+    </PropertyGroup>
+    
     <PropertyGroup>
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
@@ -8,5 +14,7 @@
 
     <PropertyGroup>
         <ShowBuildInfo>false</ShowBuildInfo>
+        <IncludeEmbeddedLibrary>true</IncludeEmbeddedLibrary>
     </PropertyGroup>
+    
 </Project>
