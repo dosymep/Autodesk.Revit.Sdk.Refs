@@ -33,7 +33,7 @@ We strictly follow SemVer:
         <ShowBuildInfo>true</ShowBuildInfo>
 
         <!-- Define configurations you want to use -->
-        <Configurations>Debug;Release;D2024;D2025;D2026;В2026.5;D2027</Configurations>
+        <Configurations>Debug;Release;D2024;D2025;D2026;D2026.5;D2027</Configurations>
     </PropertyGroup>
 
 </Project>
