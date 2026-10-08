@@ -3,7 +3,7 @@
     <Target Name="_GenerateRevitConstants" BeforeTargets="CoreCompile">
 
         <PropertyGroup>
-            <_RevitExactConstant>REVIT$(RevitVersion.Replace('.', '_'))</_RevitExactConstant>
+            <_RevitExactConstant>REVIT$(RevitMajorVersion)</_RevitExactConstant>
         </PropertyGroup>
 
         <PropertyGroup>
