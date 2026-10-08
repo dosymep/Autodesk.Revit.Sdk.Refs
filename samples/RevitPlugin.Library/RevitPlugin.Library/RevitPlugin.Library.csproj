@@ -1,0 +1,10 @@
+<Project Sdk="Autodesk.Revit.Sdk.Refs/2.0.0">
+    
+    <PropertyGroup>
+        <ShowBuildInfo>true</ShowBuildInfo>
+        <IncludeEmbeddedLibrary>true</IncludeEmbeddedLibrary>
+        <RootNamespace>RevitPlugin.Library</RootNamespace>
+        <Configurations>Debug;Release;D2016;D2017;D2018;D2019;D2020;D2021;D2022;D2023;D2024;D2025;D2026;D2026.5;D2027</Configurations>
+    </PropertyGroup>
+
+</Project>

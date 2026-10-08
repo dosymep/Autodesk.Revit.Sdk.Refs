@@ -1,0 +1,14 @@
+<Project>
+    <ItemGroup>
+        <Compile Include="../../**/*.cs" Exclude="**/Revit/**"/>
+       
+        <Page Include="../../**/*.xaml">
+            <SubType>Designer</SubType>
+            <Generator>MSBuild:Compile</Generator>
+        </Page>
+
+        <Compile Update="../../**/*.xaml.cs">
+            <DependentUpon>%(Filename)</DependentUpon>
+        </Compile>
+    </ItemGroup>
+</Project>

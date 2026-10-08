@@ -1,0 +1,17 @@
+﻿<Project>
+    <PropertyGroup>
+        <TargetFramework Condition="'$(RevitVersion)' == '2016'">net48</TargetFramework>
+        <TargetFramework Condition="'$(RevitVersion)' == '2017'">net48</TargetFramework>
+        <TargetFramework Condition="'$(RevitVersion)' == '2018'">net48</TargetFramework>
+        <TargetFramework Condition="'$(RevitVersion)' == '2019'">net48</TargetFramework>
+        <TargetFramework Condition="'$(RevitVersion)' == '2020'">net48</TargetFramework>
+        <TargetFramework Condition="'$(RevitVersion)' == '2021'">net48</TargetFramework>
+        <TargetFramework Condition="'$(RevitVersion)' == '2022'">net48</TargetFramework>
+        <TargetFramework Condition="'$(RevitVersion)' == '2023'">net48</TargetFramework>
+        <TargetFramework Condition="'$(RevitVersion)' == '2024'">net48</TargetFramework>
+        <TargetFramework Condition="'$(RevitVersion)' == '2025'">net8.0-windows</TargetFramework>
+        <TargetFramework Condition="'$(RevitVersion)' == '2026'">net8.0-windows</TargetFramework>
+        <TargetFramework Condition="'$(RevitVersion)' == '2026.5'">net10.0-windows</TargetFramework>
+        <TargetFramework Condition="'$(RevitVersion)' == '2027'">net10.0-windows</TargetFramework>
+    </PropertyGroup>
+</Project>

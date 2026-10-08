@@ -1,0 +1,31 @@
+﻿<Project>
+    <Target Name="PrintRevitBuildInfoColored" BeforeTargets="BeforeBuild" Condition="$(ShowBuildInfo) == true">
+        <PropertyGroup>
+            <_ClrReset>%1B[0m</_ClrReset>
+            <_ClrCyan>%1B[1;36m</_ClrCyan>
+            <_ClrGreen>%1B[1;32m</_ClrGreen>
+            <_ClrYellow>%1B[1;33m</_ClrYellow>
+            <_ClrGray>%1B[90m</_ClrGray>
+            <_ClrWhite>%1B[1;37m</_ClrWhite>
+
+            <_BuildTime>$([System.DateTime]::Now.ToString("dd.MM.yyyy HH:mm:ss"))</_BuildTime>
+            <_CurrentVersion Condition="'$(Version)' == ''">1.0.0</_CurrentVersion>
+            <_CurrentVersion Condition="'$(Version)' != ''">$(Version)</_CurrentVersion>
+            <_RelativeTargetDir>$([MSBuild]::MakeRelative('$(MSBuildProjectDirectory)', '$(TargetDir)'))</_RelativeTargetDir>
+        </PropertyGroup>
+
+        <Message Importance="high" Text=" "/>
+        <Message Importance="high" Text="  $(_ClrCyan)╔══════════════════════════════════════════════════╗$(_ClrReset)"/>
+        <Message Importance="high" Text="  $(_ClrCyan)║$(_ClrReset) $(_ClrWhite)🧱 REVIT ADD-IN BUILD INFO$(_ClrReset)                       $(_ClrCyan)║$(_ClrReset)"/>
+        <Message Importance="high" Text="  $(_ClrCyan)╠══════════════════════════════════════════════════╣$(_ClrReset)"/>
+        <Message Importance="high" Text="  $(_ClrCyan)║$(_ClrReset)  📅 Built at:      $(_ClrYellow)$(_BuildTime)$(_ClrReset)"/>
+        <Message Importance="high" Text="  $(_ClrCyan)║$(_ClrReset)  📦 Version:       $(_ClrYellow)$(_CurrentVersion)$(_ClrReset)"/>
+        <Message Importance="high" Text="  $(_ClrCyan)║$(_ClrReset)  🔧 Configuration: $(_ClrGreen)$(Configuration)$(_ClrReset) | $(_ClrGray)$(Platform)$(_ClrReset)"/>
+        <Message Importance="high" Text="  $(_ClrCyan)║$(_ClrReset)  🎯 Framework:     $(_ClrGreen)$(TargetFramework)$(_ClrReset)"/>
+        <Message Importance="high" Text="  $(_ClrCyan)╠══════════════════════════════════════════════════╣$(_ClrReset)"/>
+        <Message Importance="high" Text="  $(_ClrCyan)║$(_ClrReset)  🏢 Revit Target:  $(_ClrWhite)$(RevitVersion)$(_ClrReset) (API: $(_ClrGray)$(RevitMajorVersion)$(_ClrReset))"/>
+        <Message Importance="high" Text="  $(_ClrCyan)║$(_ClrReset)  📁 Build Output:  $(_ClrGray)$(_RelativeTargetDir)$(_ClrReset)"/>
+        <Message Importance="high" Text="  $(_ClrCyan)╚══════════════════════════════════════════════════╝$(_ClrReset)"/>
+        <Message Importance="high" Text=" "/>
+    </Target>
+</Project>

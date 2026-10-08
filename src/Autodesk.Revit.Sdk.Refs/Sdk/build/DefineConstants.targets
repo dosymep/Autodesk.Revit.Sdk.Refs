@@ -1,0 +1,32 @@
+<Project>
+
+    <Target Name="_GenerateRevitConstants" BeforeTargets="CoreCompile">
+
+        <PropertyGroup>
+            <_RevitExactConstant>REVIT$(RevitMajorVersion)</_RevitExactConstant>
+        </PropertyGroup>
+
+        <PropertyGroup>
+
+            <_RevitGreaterConstants Condition="$([System.Int32]::Parse('$(RevitMajorVersion)')) &gt;= 2016">$(_RevitGreaterConstants);REVIT2016_OR_GREATER</_RevitGreaterConstants>
+            <_RevitGreaterConstants Condition="$([System.Int32]::Parse('$(RevitMajorVersion)')) &gt;= 2017">$(_RevitGreaterConstants);REVIT2017_OR_GREATER</_RevitGreaterConstants>
+            <_RevitGreaterConstants Condition="$([System.Int32]::Parse('$(RevitMajorVersion)')) &gt;= 2018">$(_RevitGreaterConstants);REVIT2018_OR_GREATER</_RevitGreaterConstants>
+            <_RevitGreaterConstants Condition="$([System.Int32]::Parse('$(RevitMajorVersion)')) &gt;= 2019">$(_RevitGreaterConstants);REVIT2019_OR_GREATER</_RevitGreaterConstants>
+            <_RevitGreaterConstants Condition="$([System.Int32]::Parse('$(RevitMajorVersion)')) &gt;= 2020">$(_RevitGreaterConstants);REVIT2020_OR_GREATER</_RevitGreaterConstants>
+            <_RevitGreaterConstants Condition="$([System.Int32]::Parse('$(RevitMajorVersion)')) &gt;= 2021">$(_RevitGreaterConstants);REVIT2021_OR_GREATER</_RevitGreaterConstants>
+            <_RevitGreaterConstants Condition="$([System.Int32]::Parse('$(RevitMajorVersion)')) &gt;= 2022">$(_RevitGreaterConstants);REVIT2022_OR_GREATER</_RevitGreaterConstants>
+            <_RevitGreaterConstants Condition="$([System.Int32]::Parse('$(RevitMajorVersion)')) &gt;= 2023">$(_RevitGreaterConstants);REVIT2023_OR_GREATER</_RevitGreaterConstants>
+            <_RevitGreaterConstants Condition="$([System.Int32]::Parse('$(RevitMajorVersion)')) &gt;= 2024">$(_RevitGreaterConstants);REVIT2024_OR_GREATER</_RevitGreaterConstants>
+            <_RevitGreaterConstants Condition="$([System.Int32]::Parse('$(RevitMajorVersion)')) &gt;= 2025">$(_RevitGreaterConstants);REVIT2025_OR_GREATER</_RevitGreaterConstants>
+            <_RevitGreaterConstants Condition="$([System.Int32]::Parse('$(RevitMajorVersion)')) &gt;= 2026">$(_RevitGreaterConstants);REVIT2026_OR_GREATER</_RevitGreaterConstants>
+            <_RevitGreaterConstants Condition="$([System.Int32]::Parse('$(RevitMajorVersion)')) &gt;= 2027">$(_RevitGreaterConstants);REVIT2027_OR_GREATER</_RevitGreaterConstants>
+
+        </PropertyGroup>
+
+        <PropertyGroup>
+            <DefineConstants>$(DefineConstants);$(_RevitExactConstant);$(_RevitGreaterConstants)</DefineConstants>
+        </PropertyGroup>
+
+    </Target>
+
+</Project>

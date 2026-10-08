@@ -1,28 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net48</TargetFramework>
+        <PackageType>MSBuildSdk</PackageType>
+        <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
 
     <PropertyGroup>
         <Title>Autodesk.Revit.Sdk.Refs</Title>
         <PackageId>Autodesk.Revit.Sdk.Refs</PackageId>
-        <DevelopmentDependency>true</DevelopmentDependency>
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="../../.github/workflows/*.yml" LinkBase="ci"/>
-        
-        <Content Include="../../assets/Revit.png" Pack="true" PackagePath="Revit.png" />
-        <Content Include="../../assets/README.md" Pack="true" PackagePath="README.md" />
-        <Content Include="../../assets/LICENSE.md" Pack="true" PackagePath="LICENSE.md" />
-        
-        <Content Include="Autodesk.Revit.Sdk.Refs.props" Pack="true" PackagePath="build/" Link="%(FileName)$(FileExt)" />
-        <Content Include="props/Autodesk.Revit.Sdk.Refs.*.props" Pack="true" PackagePath="build/" Link="props/%(FileName)$(FileExt)" />
-        
-        <Content Include="Autodesk.Revit.Sdk.Refs.targets" Pack="true" PackagePath="build/" Link="%(FileName)$(FileExt)" />
-        <Content Include="targets/Autodesk.Revit.Sdk.Refs.*.targets" Pack="true" PackagePath="build/" Link="targets/%(FileName)$(FileExt)" />
+        <Content Include="Sdk/**/*.props" PackagePath="Sdk/"/>
+        <Content Include="Sdk/**/*.targets" PackagePath="Sdk/"/>
+
+        <None Include="../../.github/**/*.yml" LinkBase=".github"/>
+
+        <Content Include="../../assets/Revit.png" Pack="true" PackagePath="Revit.png"/>
+        <Content Include="../../assets/README.md" Pack="true" PackagePath="README.md"/>
+        <Content Include="../../assets/LICENSE.md" Pack="true" PackagePath="LICENSE.md"/>
     </ItemGroup>
-    
+
     <Target Name="Version" AfterTargets="Pack">
         <WriteLinesToFile File="$(PackageOutputPath)\package-version.txt" Lines="$(PackageVersion)"/>
     </Target>

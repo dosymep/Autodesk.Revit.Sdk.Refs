@@ -1,5 +1,4 @@
 <Project>
-    <Import Project="Autodesk.Revit.Sdk.Refs.*.props"/>
     
     <PropertyGroup>
         <RevitPath>$(ProgramFiles)\Autodesk\Revit $(RevitVersion)</RevitPath>
@@ -13,4 +12,5 @@
         <RevitPath>$(ProgramFiles)\Autodesk\Revit MEP $(RevitVersion)</RevitPath>
         <RevitExePath>$(ProgramFiles)\Autodesk\Revit MEP $(RevitVersion)\Revit.exe</RevitExePath>
     </PropertyGroup>
+    
 </Project>

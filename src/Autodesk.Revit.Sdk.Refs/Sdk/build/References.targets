@@ -1,0 +1,10 @@
+﻿<Project>
+    <ItemGroup Condition="$(ManagePackageVersionsCentrally) != true">
+        <PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitMajorVersion)" Version="2.0.0"/>
+    </ItemGroup>
+
+    <ItemGroup Condition="$(ManagePackageVersionsCentrally) == true">
+        <PackageVersion Include="Autodesk.Revit.Sdk.Refs.$(RevitMajorVersion)" Version="2.0.0"/>
+        <PackageReference Include="Autodesk.Revit.Sdk.Refs.$(RevitMajorVersion)"/>
+    </ItemGroup>
+</Project>

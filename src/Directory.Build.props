@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project>
     <PropertyGroup>
         <Platforms>x64</Platforms>
         <OutputType>Library</OutputType>
+        <LangVersion>latest</LangVersion>
     </PropertyGroup>
 
     <PropertyGroup>
-        <Version>1.2.0</Version>
-        <FileVersion>1.2.0</FileVersion>
-        <PackageVersion>1.2.0</PackageVersion>
-        <AssemblyVersion>1.2.0</AssemblyVersion>
+        <Version>2.0.0</Version>
+        <FileVersion>2.0.0</FileVersion>
+        <PackageVersion>2.0.0</PackageVersion>
+        <AssemblyVersion>2.0.0</AssemblyVersion>
     </PropertyGroup>
 
     <PropertyGroup>
         <DebugType>None</DebugType>
         <DebugSymbols>false</DebugSymbols>
         <IncludeSymbols>false</IncludeSymbols>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <BuildOutputInPackage>false</BuildOutputInPackage>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <EnableDefaultItems>false</EnableDefaultItems>
         <EnableDefaultNoneItems>false</EnableDefaultNoneItems>
         <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
@@ -47,17 +51,10 @@
         <Title>Autodesk.Revit.Sdk.Refs.$(RevitVersion)</Title>
         <PackageId>Autodesk.Revit.Sdk.Refs.$(RevitVersion)</PackageId>
     </PropertyGroup>
-    
+
     <ItemGroup Condition="'$(RevitVersion)' != ''">
         <Content Include="../../assets/README.md" Pack="true" PackagePath="README.md"/>
         <Content Include="../../assets/LICENSE.md" Pack="true" PackagePath="LICENSE.md"/>
         <Content Include="../../assets/Revit.$(RevitVersion).png" Pack="true" PackagePath="Revit.png"/>
-        <Content Include="../../lib/$(RevitVersion)/**" PackagePath="ref/$(TargetFramework)/" Link="lib/%(FileName)$(FileExt)"/>
     </ItemGroup>
-
-    <Target Name="CoreCompile"/>
-    <PropertyGroup>
-        <BuildInParallel>false</BuildInParallel>
-        <IncludeBuildOutput>false</IncludeBuildOutput>
-    </PropertyGroup>
 </Project>

@@ -1,0 +1,10 @@
+﻿<Project>
+
+    <Import Project="build/BuildInfo.targets"/>
+    <Import Project="build/DefineConstants.targets"/>
+
+    <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk"/>
+
+    <Import Project="build/References.targets" Condition="$(IncludeEmbeddedLibrary) == true"/>
+
+</Project>
